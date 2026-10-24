@@ -1,0 +1,99 @@
+CHẠY THỬ VÀ SỬA LỖI — 23/10/2026
+
+TRẠNG THÁI MỚI NHẤT
+Người dùng xác nhận có cửa sổ/agent khác cùng chỉnh dự án. Sau lượt kiểm tra
+UI/Wiki đã qua, các file QuestSystem.ts (15:06:55), DialogueModal.ts (15:09:11)
+và StorageSystem.ts (15:10:25) được thêm/sửa bởi luồng công việc khác.
+Không ghi đè phần NPC/nhiệm vụ đang được phát triển.
+
+Lượt đóng gói cuối chưa thành công với bản nguồn mới:
+- TS2739 tại StorageSystem.ts:77/79/121: emptyQuest thiếu chapter, wolfKills,
+  bearKills, herbsCollected so với Required<QuestProgress> mới.
+- TS6133/TS6138 tại DialogueModal.ts:10/11/18: npcName, npcTitle và trường
+  inventory chưa được sử dụng.
+- npm test lúc 15:13: 85 qua, 3 fail: hai test storage so sánh kiểu tiến độ
+  cũ với bốn trường mới; test advanced-combat nhận chỉ số phòng ngự 15 thay
+  vì 10 sau thay đổi cảnh giới/thuộc tính của luồng khác.
+- Cần bên đang phát triển chốt schema/cảnh giới và hoàn tất tích hợp, rồi
+  chạy lại test/build/smoke. Không đổi assertion hoặc hạ kiểm tra strict chỉ
+  để cho qua khi thiết kế mới chưa chốt.
+
+APK và hash bên dưới là lượt build thành công trước đó, chưa chứa hai tinh
+chỉnh CSS cuối (kỹ năng chữ lớn hai cột và tên nút trên lớp hồi chiêu).
+Các kết quả 88 test / 20 thao tác / 60 ca UI ghi bên dưới là mốc đã xác minh
+trước khi các file NPC/nhiệm vụ mới thay đổi, không phải chứng nhận cho toàn
+bộ bản nguồn đang tiếp tục được chỉnh.
+
+Phạm vi
+Kiểm tra bản chơi offline hiện tại, gồm phần Wiki mới trong workspace. Giữ các
+thay đổi nội dung, atlas và giao diện cổ phong đang có. Áp dụng ui-ux-pro-max
+từ C:/Users/DELL/.claude/skills/ui-ux-pro-max/SKILL.md và các quy tắc về bàn phím,
+focus, kích thước chạm, tương phản, responsive và reduced motion.
+
+Lỗi đã tái hiện và sửa
+1. Tìm kiếm Wiki: ArrowUp lần đầu chọn áp chót thay vì kết quả cuối.
+2. Escape khi không có kết quả đóng cả Wiki; nay chỉ đóng danh sách tìm kiếm.
+3. Vòng Tab của modal bỏ qua summary Mục lục; nay có thể đi qua bằng bàn phím.
+4. Lọc Cổ thay thế DOM làm mất focus về BODY. Nay focus chuyển tới nút lọc
+   tương ứng vừa được dựng lại và cuộn để nhìn thấy nó.
+5. Kết quả tìm kiếm cuối được chọn nhưng nằm ngoài danh sách nhìn thấy:
+   trước sửa scrollTop=0, kết quả ở y867..927 trong khung y191..511;
+   sau sửa scrollTop=417, kết quả ở y450..510 trong cùng khung.
+6. Hướng dẫn mô tả các phím chưa được bản thử hỗ trợ. Nay phần điều khiển
+   hiện tại mô tả WASD/mũi tên, joystick và các nút trên màn hình; phần game
+   gốc giữ lại dưới nhãn tham khảo rõ ràng.
+7. Nút mở mục lục cao 32 px, link điều hướng 28,2 px. Tăng các mục điều hướng
+   độc lập và chip Cổ nổi bật lên tối thiểu 44 px, thêm khoảng cách mục lục.
+8. Viền focus ngọc trên nền giấy chỉ đạt 1,30:1. Dùng đỏ mực #7a2618 trong
+   phần nền giấy, đạt 8,57:1; giữ ngọc trên các bề mặt tối.
+9. Điện thoại 375×812 với chữ 200%: nhiệm vụ y397..506 chồng chỉ báo giờ
+   y468..504 sau khi thêm nút Wiki. HUD chữ lớn trên mobile chuyển sang luồng
+   cuộn, giữ đủ nội dung và nút. Canvas/modal/thông báo vẫn theo viewport.
+   Nút kỹ năng chữ lớn ở portrait dùng hai cột để tên không vỡ thành nhiều
+   đoạn giữa một từ. Tên và chi phí kỹ năng nằm trên lớp phủ hồi chiêu để
+   vẫn đọc được khi kỹ năng đang chờ dùng lại.
+
+Bổ sung trạng thái combobox/listbox cho tìm kiếm: expanded, active descendant,
+option/selected và đặt lại khi đóng. Các lỗi bàn phím có test hồi quy trước/sau;
+hai lỗi focus/cuộn được xác minh bằng click và phím Chrome thật.
+
+Cách chạy lại
+Giữ npm run dev trong cotienlo-game, rồi từ gốc dự án:
+  node tools/check-game-smoke.mjs
+  node tools/check-game-ui.mjs
+  node tools/check-game-ui.mjs --text-scale=2 --out=.tmp/ui-check-text200
+  node tools/check-game-ui.mjs --reduced-motion --out=.tmp/ui-check-reduced
+
+Cả hai công cụ dùng Chrome DevTools Protocol và Node có sẵn, không thêm gói.
+Profile kiểm tra riêng không đọc/sửa bản lưu người chơi, được dọn khi Chrome
+đóng. Ảnh, JSON và log được giữ trong .tmp ở gốc, ngoài phạm vi theo dõi Vite.
+
+Kiểm chứng
+- npm test: 88/88 test, 12 file. npm run test:assets: 3/3 test.
+- npm run build:android: TypeScript strict, Vite và đồng bộ 5 tài nguyên qua.
+- Chơi thử Chrome: 20/20 kiểm tra qua, gồm kỹ năng trừ chân nguyên, bật/tắt
+  âm thanh, cho ăn tiêu một thức ăn/lưu độ no, bàn phím tab túi đồ, hợp luyện
+  trừ đúng 10 nguyên thạch với RNG thật, Wiki, chặn kỹ năng xuyên modal và
+  phục hồi dữ liệu sau reload. Không có exception chưa bắt hoặc tài nguyên lỗi.
+- Chrome xác minh sửa portrait chữ 200%: 5/5 màn hình qua, kiểm tra cuộn tới
+  điều khiển, canvas cố định và thông báo hồi máu sau khi cuộn.
+- Chi tiết thao tác: .tmp/game-smoke-recheck/results.json.
+- UI: 60/60 ca qua ở 375×812, 812×375, 568×320, 1440×900 với 5 màn hình
+  game/túi đồ/hợp luyện/nhân vật/Wiki trong chế độ thường, chữ 200% và reduced
+  motion. Báo cáo chữ 200% ghi sourceReport rõ ràng cho từng ca: 5 ca portrait
+  đã chạy lại sau sửa, 15 ca không bị thay đổi được giữ từ lượt đầy đủ trước.
+  Báo cáo: .tmp/ui-recheck-final-normal/results.json,
+  .tmp/ui-recheck-final-text200/results.json, .tmp/ui-recheck-reduced/results.json.
+- CDP kiểm tra exception, console error và tải tài nguyên. Chỉ bỏ favicon404,
+  cảnh báo autoplay và điều hướng tài liệu bị thay thế đã có response thành
+  công tiếp theo; không bỏ lỗi tải script/ảnh/font của game.
+- Gradle :app:assembleDebug testDebugUnitTest --offline: BUILD SUCCESSFUL.
+  APK app/build/outputs/apk/debug/app-debug.apk: 88.870.434 byte;
+  SHA-256: 98CC13C97C4F66E7D2D9531B5B651B1EA428E99D99FA30996A00C980B015FF69.
+  Toàn bộ 5 tài nguyên trong APK khớp SHA-256 với dist, gồm hai ảnh atlas Wiki.
+  Log: .tmp/runtime-recheck-gradle.log. Các task JVM không đổi dùng cache Gradle.
+- Ảnh giao diện hiện tại: docs/ui-preview/, gồm mobile-wiki.png.
+
+Giới hạn: adb không có thiết bị/emulator kết nối; chưa xác minh thao tác chạm,
+âm thanh hoặc hình ảnh WebView trên điện thoại thật. Kết quả trình duyệt và
+unit test không đồng nghĩa đã loại trừ mọi lỗi trong toàn bộ game.

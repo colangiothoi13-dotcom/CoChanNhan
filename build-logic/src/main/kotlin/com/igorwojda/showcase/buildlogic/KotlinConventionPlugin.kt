@@ -1,0 +1,22 @@
+package com.igorwojda.showcase.buildlogic
+
+import com.igorwojda.showcase.buildlogic.config.JavaBuildConfig
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
+
+/**
+ * Kotlin compilation is provided by AGP built-in Kotlin support (AGP 9+).
+ */
+class KotlinConventionPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            val javaBuildConfig = JavaBuildConfig(target)
+            with(pluginManager) {
+                apply("org.jetbrains.kotlin.plugin.serialization")
+            }
+
+            kotlinExtension.jvmToolchain(javaBuildConfig.jvmToolchainVersion)
+        }
+    }
+}

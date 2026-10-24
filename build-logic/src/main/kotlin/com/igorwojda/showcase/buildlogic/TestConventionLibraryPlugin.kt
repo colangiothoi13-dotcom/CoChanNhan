@@ -1,0 +1,70 @@
+package com.igorwojda.showcase.buildlogic
+
+import com.android.build.api.dsl.LibraryExtension
+import com.igorwojda.showcase.buildlogic.config.JavaBuildConfig
+import com.igorwojda.showcase.buildlogic.ext.versions
+import com.mikepenz.aboutlibraries.plugin.AboutLibrariesPlugin
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.apply
+import org.gradle.kotlin.dsl.configure
+
+class TestConventionLibraryPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            val javaBuildConfig = JavaBuildConfig(target)
+            with(pluginManager) {
+                apply("com.android.library")
+                apply<KotlinConventionPlugin>()
+                apply<TestConventionPlugin>()
+                apply<AboutLibrariesPlugin>()
+                apply("com.google.devtools.ksp")
+            }
+
+            extensions.configure<LibraryExtension> {
+                compileSdk =
+                    versions
+                        .compile
+                        .sdk
+                        .get()
+                        .toInt()
+
+                defaultConfig {
+                    minSdk =
+                        versions
+                            .min
+                            .sdk
+                            .get()
+                            .toInt()
+
+                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                }
+
+                buildFeatures {
+                    viewBinding = false
+                    buildConfig = false
+                    compose = false
+                }
+
+                compileOptions {
+                    sourceCompatibility = javaBuildConfig.javaVersion
+                    targetCompatibility = javaBuildConfig.javaVersion
+                }
+
+                testOptions {
+                    unitTests.isReturnDefaultValues = true
+                }
+
+                packaging {
+                    resources.excludes +=
+                        setOf(
+                            "META-INF/AL2.0",
+                            "META-INF/licenses/**",
+                            "**/attach_hotspot_windows.dll",
+                            "META-INF/LGPL2.1",
+                        )
+                }
+            }
+        }
+    }
+}

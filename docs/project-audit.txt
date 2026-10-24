@@ -1,0 +1,113 @@
+KIỂM TRA VÀ SỬA LỖI DỰ ÁN — 23/10/2026
+
+Phạm vi đã chốt
+Sửa lỗi và clean code bản chơi thử hiện tại. Người dùng xác nhận chưa triển khai
+nền tảng online trong đợt này. Tài liệu Word Ke_hoach_phat_trien_game_RPG_2D_online.md.docx
+là nguồn đối chiếu chính; các file design/vertical-slice và Kế hoạch phát triển
+game nhập vai.md diễn đạt cùng kế hoạch. ke_hoach_game_co_tien_lo.md mô tả hướng
+prototype Canvas/offline cũ; không dùng file này để tuyên bố đạt kiến trúc online.
+
+Các lỗi đã sửa trong game
+1. Hồi sinh quái tạo timeout mỗi frame: test cũ tái hiện 847 thực thể qua hai đợt
+   thay vì 14. Dùng bộ đếm thời gian mô phỏng; thay thế đợt cũ, không giữ xác vô hạn.
+2. Camera khởi tạo bằng kích thước pixel vật lý thay vì CSS pixel trên màn hình
+   DPR > 1. Tách đúng kích thước viewport và phép biến đổi canvas khi resize.
+3. Joystick luôn chạy hết tốc độ dù chỉ kéo một phần; nay dùng cường độ cần gạt.
+4. Nhân vật tiếp tục chạy khi mất focus, mở bảng hoặc chuyển ứng dụng. Xóa input
+   khi blur/ẩn trang/tạm dừng; bỏ phím khi nhập văn bản và chặn thao tác xuyên bảng.
+5. Hồi máu cứu nhân vật đã chết trước khi logic hồi sinh chạy; hồi quá thời lượng
+   còn lại của buff. Chặn cập nhật người chết và giới hạn thời gian hồi máu thực tế.
+6. Đánh vào quái đã chết có thể sinh đồ rơi lần nữa. Sự kiện chết nay chỉ trả một lần.
+7. Ba vị trí quái ban đầu nằm trong vật cản. Đã di chuyển tới các điểm không va chạm.
+8. Nhiệm vụ báo thưởng 30 nhưng chưa cộng. Tách QuestSystem, giữ thưởng săn 15,
+   cộng thưởng hoàn tất 30 một lần, lưu cờ đã nhận và giới hạn tiến độ hiển thị.
+9. Bản lưu thiếu túi vật phẩm, độ no, thể lực và trạng thái luyện cổ/nhận thưởng.
+   Bổ sung schema v2 trên khóa lưu cũ, di chuyển bản lưu cũ và kiểm tra dữ liệu
+   JSON, số không hữu hạn, số lượng/ID không hợp lệ trước khi phục hồi.
+10. Cho ăn không tiêu thức ăn; hợp luyện không kiểm tra sở hữu và vẫn thu phí
+    khi đã có kết quả. Kiểm tra thức ăn, độ no, sở hữu, kết quả trùng và số lượng.
+11. Thiết Cốt Cổ luyện xong không có tác dụng. Nay cộng 15 phòng ngự từ quyền sở hữu
+    khi tải và sau luyện thành công; bảng thuộc tính cập nhật theo.
+12. Nguyệt Nhận Cổ dùng giá/hồi chiêu của cấp cũ và không xuyên mục tiêu.
+    Nay dùng cấu hình 28 MP/1,2 giây, đao lớn hơn, xuyên nhiều mục tiêu và mỗi mục
+    tiêu chỉ nhận một lần từ một đao. Nguyệt Quang cơ bản giữ 15 MP/1 giây.
+13. Cho ăn, nhặt đồ và lượt hợp luyện thất bại chờ autosave. Nay lưu ngay sau thay
+    đổi kinh tế; lưu thất bại có thông báo và không lặp thông báo mỗi frame.
+14. Các bảng có thể chồng nhau. Dùng chung thao tác mở để chỉ một bảng chính hoạt động.
+
+Clean code và tích hợp
+- Tách trạng thái/thưởng nhiệm vụ khỏi vòng render; dùng chung kiểu tiến độ lưu.
+- Bật noUnusedLocals/noUnusedParameters; bỏ trường lưu modal không được sử dụng.
+- Thêm kiểm tra số lượng, giới hạn số nguyên và danh mục vật phẩm tập trung.
+- Quản lý pause/resume/destroy của vòng game, input, timer, Web Audio và WebView.
+- Tải module JavaScript Android qua HTTPS nội bộ appassets, có bộ ánh xạ chỉ cho
+  tài nguyên của game, MIME đúng và chặn đường dẫn vượt thư mục. Chuyển khóa lưu
+  cũ từ file origin trước khi game khởi tạo; giữ bản lưu HTTPS đã có. Payload được
+  JSON-quote và escape trước khi chèn, không đặt dữ liệu lưu vào URL hoặc log.
+- Thêm build:android và Gradle preBuild để build nguồn TypeScript rồi đồng bộ đúng
+  tài nguyên vào app/src/main/assets/cotienlo. Kiểm tra tham chiếu HTML trước khi
+  thay tệp cũ; không chỉnh trực tiếp JavaScript đã minify.
+- Loại phụ thuộc JavaBuildConfig vào user.dir của Gradle daemon; đọc catalog theo
+  Project để build từ IDE/thư mục làm việc khác.
+- Sửa test kiến trúc ModuleKonsistTest báo sai 114 file trên Windows: truyền root
+  rõ ràng từ Gradle, chuẩn hóa dấu phân cách và suy package từ đường dẫn nguồn;
+  bổ sung fixture Windows/Unix và kiểm tra đúng ranh giới package.
+- Khai báo mã Kotlin của các module được quét làm input cho test kiến trúc,
+  để thay đổi/di chuyển mã nguồn không tái sử dụng nhầm kết quả cache cũ.
+- Bổ sung hướng dẫn chạy và build ở cotienlo-game/README.md, bỏ node_modules/dist
+  và thư mục tạm khỏi phạm vi Git.
+
+Đối chiếu Word: những phần CHƯA được triển khai trong bản hiện tại
+- Backend có thẩm quyền, tài khoản/guest do server cấp, Colyseus room và hai người
+  thật cùng chơi; PostgreSQL và giao dịch có operationId/receipt/session ownership.
+- React/Phaser/GameBridge theo kiến trúc đề xuất; hiện vẫn là Canvas/DOM TypeScript.
+- Hai ô linh thú chủ động + một bị động và thay loadout. Prototype vẫn có bốn nút Cổ.
+- NPC, chuỗi hướng dẫn ba bước, XP/lên cấp và thao tác nâng cấp xác định kết quả
+  theo slice. Giữ hệ hợp luyện xác suất của prototype để tránh đổi thiết kế trong
+  đợt sửa lỗi đã chốt.
+- PWA có manifest/service worker, kiểm tra phiên bản nội dung/protocol, reconnect,
+  transaction bền vững và các phép đo tải 20 người/40 quái.
+Các mục trên là công việc phát triển tiếp theo, không được tính là đã hoàn thành
+chỉ vì bản build và các test sửa lỗi chạy qua.
+
+Kiểm chứng
+- Ban đầu: 10 test cũ và build web đã qua, nhưng chưa bao phủ các lỗi nêu trên.
+- Đã thêm test hành vi tái hiện lỗi trước/sau sửa cho input, runtime, nhiệm vụ,
+  lưu trữ/kinh tế, chiến đấu nâng cấp, âm thanh và đồng bộ tài nguyên.
+- npm test: 72/72 test, 9 file (đã chạy lại sau các bản sửa cuối).
+- npm run test:assets: 3/3 test đồng bộ tài nguyên.
+- npm run build / build:android: TypeScript strict và Vite build thành công;
+  thư mục tài nguyên Android được đồng bộ từ bản build mới.
+- tools/check-game-asset-routes.ps1: 17 ca định tuyến và 5 ca chuyển bản lưu qua;
+  chạy chính mã Kotlin sản phẩm bằng compiler có trong Gradle cache.
+- Android compileDebugKotlin: thành công sau bản sửa HTTPS/chuyển bản lưu.
+- :app:assembleDebug testDebugUnitTest --offline --continue: BUILD SUCCESSFUL.
+  APK debug: app/build/outputs/apk/debug/app-debug.apk (87.339.196 byte).
+  Ba tệp game trong APK khớp SHA-256 với dist; không có bundle cũ thừa.
+- Android testDebugUnitTest: 83/83 test qua, 0 failures/errors (base 9, album 56,
+  settings 2, konsist 16). Ban đầu cache thiếu dependency; sau tải dependency,
+  phát hiện và sửa lỗi đường dẫn Windows rồi chạy lại thành công.
+- Kiểm tra user.dir khác thư mục gốc: compile thành công, không còn lỗi đọc TOML.
+- Lượt review độc lập đã kiểm tra lại hai lỗi tải module và lưu kinh tế; không
+  còn phát hiện quan trọng chưa sửa trong các luồng đã review.
+
+Tham khảo kỹ thuật cho lỗi tải module Android
+https://developer.android.com/develop/ui/views/layout/webapps/load-local-content
+https://chromium.googlesource.com/chromium/src/+/HEAD/android_webview/docs/cors-and-webview-api.md
+
+Giới hạn
+- Không có thư mục .git tại workspace: không tạo branch/commit hoặc diff Git.
+- Chưa chạy trên điện thoại/emulator thật. Công cụ trình duyệt tương tác không
+  trả trạng thái trong môi trường này; test DOM/canvas dùng fixture trong Node.
+- Không thay đổi hai tài liệu yêu cầu Word/Markdown gốc.
+
+Chạy lại kiểm tra
+Từ cotienlo-game:
+  npm test
+  npm run test:assets
+  npm run build:android
+Từ thư mục gốc:
+  .\tools\check-game-asset-routes.ps1
+  .\gradlew.bat :app:assembleDebug testDebugUnitTest --no-daemon --no-configuration-cache
+Trong môi trường kiểm tra, GRADLE_USER_HOME được trỏ tới C:\Users\DELL\.gradle
+để dùng cache có sẵn. Trên máy khác dùng thư mục Gradle của chính người dùng đó.

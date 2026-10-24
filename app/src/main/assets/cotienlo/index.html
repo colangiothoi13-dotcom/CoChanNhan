@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b1b16">
+  <title>Cổ Tiên Lộ · Ngũ Vực</title>
+  <script type="module" crossorigin src="./assets/index-CU5VLP-A.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-qEwbLxhz.css">
+</head>
+<body>
+  <main id="game-container" data-game-mode="overworld" aria-label="Cổ Tiên Lộ — thế giới Thanh Mao Sơn">
+    <canvas id="game-canvas" aria-label="Bản đồ chiến đấu. WASD hoặc cần điều khiển để chạy. Chuột để ngắm, nhấp trái hoặc J để đánh, K dùng Nguyệt Quang. Trên cảm ứng kéo nút chiêu rồi thả để bắn."></canvas>
+    <div class="world-frame" aria-hidden="true"></div>
+
+    <header id="top-hud" aria-label="Thông tin Cổ Sư và hành trang">
+      <section class="player-panel" aria-label="Nhân vật và trạng thái">
+        <button class="cultivator-info-badge" id="btn-open-cultivator" type="button" aria-label="Xem thông tin Cổ Sư" aria-haspopup="dialog">
+          <span class="avatar-circle" aria-hidden="true"><span data-icon="user"></span><span class="avatar-rank">I</span></span>
+          <span class="cultivator-meta"><span class="realm-title" id="hud-realm">Nhất Chuyển Sơ Giai</span><span class="cultivator-name" id="hud-name">Cổ Sư Cổ Nguyệt</span><span class="profile-link">Khiếu huyệt <span data-icon="chevron-right" aria-hidden="true"></span></span></span>
+        </button>
+        <div class="status-bars-container" aria-label="Sinh lực, chân nguyên và thể lực">
+          <div class="bar-group hp-bar-group"><div class="bar-label"><span><i class="bar-dot"></i>Sinh lực</span><span id="hud-hp-text">100/100</span></div><div class="bar-track" aria-hidden="true"><div class="bar-fill hp-fill" id="hud-hp-fill" style="width:100%"></div></div></div>
+          <div class="bar-group mp-bar-group"><div class="bar-label"><span><i class="bar-dot"></i>Chân nguyên</span><span id="hud-mp-text">100/100</span></div><div class="bar-track" aria-hidden="true"><div class="bar-fill mp-fill" id="hud-mp-fill" style="width:100%"></div></div></div>
+          <div class="bar-group stamina-bar-group"><div class="bar-label"><span><i class="bar-dot"></i>Thể lực</span><span id="hud-stamina-text">100/100</span></div><div class="bar-track" aria-hidden="true"><div class="bar-fill stamina-fill" id="hud-stamina-fill" style="width:100%"></div></div></div>
+        </div>
+      </section>
+
+      <div class="brand-lockup" aria-hidden="true"><span class="brand-rule"></span><span class="brand-title">Cổ Tiên Lộ</span><span class="brand-subtitle">Một bước vào cổ giới</span><span class="brand-rule"></span></div>
+
+      <nav class="top-right-group" aria-label="Hành trang và thiết lập">
+        <button class="icon-hud-btn world-entry" id="btn-open-world" type="button" aria-haspopup="dialog" aria-label="Bước vào thế giới chung Ngũ Vực"><span data-icon="mountain" aria-hidden="true"></span><span>Ngũ Vực</span></button>
+        <div class="currency-badge" id="hud-currency" title="Nguyên thạch"><span class="gem-icon" data-icon="gem" aria-hidden="true"></span><span class="currency-meta"><span class="currency-label">Nguyên thạch</span><strong id="currency-count">25</strong></span></div>
+        <button class="icon-hud-btn" id="btn-open-tutorial" type="button" aria-haspopup="dialog" aria-label="Mở Hướng dẫn tân thủ"><span data-icon="sparkles" aria-hidden="true"></span><span>Chỉ dẫn</span></button>
+        <button class="icon-hud-btn" id="btn-open-wiki" type="button" aria-haspopup="dialog" aria-label="Mở Cẩm nang Wiki"><span data-icon="book" aria-hidden="true"></span><span>Cẩm nang</span></button>
+        <button class="icon-hud-btn" id="btn-open-refine" type="button" aria-haspopup="dialog" aria-label="Mở bảng luyện cổ"><span data-icon="flask" aria-hidden="true"></span><span>Luyện cổ</span></button>
+        <button class="icon-hud-btn" id="btn-open-settings" type="button" aria-haspopup="dialog" aria-label="Cài đặt chiêu và phím"><span data-icon="settings" aria-hidden="true"></span><span>Cài đặt</span></button>
+        <button class="icon-hud-btn" id="btn-open-inventory" type="button" aria-haspopup="dialog" aria-label="Mở túi đồ"><span data-icon="bag" aria-hidden="true"></span><span>Túi đồ</span></button>
+        <button class="icon-hud-btn" id="btn-open-resources" type="button" aria-haspopup="dialog" aria-label="Quản lý tài nguyên, bắt và nuôi Cổ"><span data-icon="leaf" aria-hidden="true"></span><span>Tài nguyên</span></button>
+        <button class="icon-hud-btn audio-button" id="btn-audio-toggle" type="button" aria-label="Tắt âm thanh" aria-pressed="true"><span id="audio-icon" data-icon="sound" aria-hidden="true"></span><span>Âm thanh</span></button>
+      </nav>
+    </header>
+
+    <section id="quest-banner" aria-labelledby="quest-heading">
+      <div class="quest-heading-row"><span class="quest-emblem" data-icon="target" aria-hidden="true"></span><div><p class="eyebrow">Nhiệm vụ gia tộc</p><h1 id="quest-heading">Bước đầu tu hành</h1></div><span class="quest-chapter" aria-hidden="true">01</span></div>
+      <p class="quest-desc" id="quest-text" aria-live="polite">Săn rắn (0/3) &amp; Hợp luyện cổ (0/1)</p>
+      <div class="quest-progress-track" aria-hidden="true"><div class="quest-progress-fill" id="quest-progress-fill" style="width:0%"></div></div>
+      <p class="quest-reward"><span data-icon="gem" aria-hidden="true"></span>Hoàn thành hành trình · nhận 30 nguyên thạch</p>
+      <div id="quest-banner-action"></div>
+    </section>
+
+    <button id="btn-npc-interact" class="btn-npc-floating" type="button" aria-label="Nói chuyện với Gia Lão" hidden><span data-icon="sparkles" aria-hidden="true"></span><span>[F] Đàm đạo</span></button>
+
+    <div id="zone-indicator"><span class="location-mark" data-icon="mountain" aria-hidden="true"></span><span class="location-name">Ngũ Vực</span><span class="zone-divider" aria-hidden="true"></span><span id="time-icon" data-icon="sun" aria-hidden="true"></span><span id="zone-name">Bình minh</span></div>
+
+    <div id="touch-controls" aria-label="Điều khiển chiến đấu">
+      <div class="movement-controls">
+        <div id="joystick-zone" aria-label="Cần điều khiển di chuyển"><div id="joystick-base"><span class="joystick-cross" aria-hidden="true"></span><div id="joystick-thumb"><span data-icon="strength" aria-hidden="true"></span></div></div></div>
+        <p class="joystick-hint"><span class="touch-hint">Chạm và kéo để di chuyển</span><span class="keyboard-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Di chuyển</span></span></p>
+      </div>
+      <div class="combat-controls"><p class="combat-caption"><span aria-hidden="true"></span><b class="keyboard-hint">Chuột ngắm · 1–4 dùng chiêu</b><b class="touch-hint">Kéo ngắm · Thả chiêu</b><span aria-hidden="true"></span></p><div id="action-wheel">
+        <button class="action-btn btn-gu gu-slot-1" id="btn-gu-moonlight" data-gu="moonlight" type="button" aria-label="Dùng Nguyệt Quang Cổ" title="K: dùng Cổ theo hướng chuột. Cảm ứng: kéo rồi thả để chọn hướng."><span class="skill-key-badge">1</span><span class="btn-icon" data-gu-icon="moonlight" data-icon-size="28" aria-hidden="true"></span><span class="btn-sub" id="skill-moonlight-name">Nguyệt Quang</span><span class="gu-cost" id="skill-moonlight-cost">15 CN</span><span class="cd-overlay" id="cd-moonlight" aria-hidden="true"></span></button>
+        <button class="action-btn btn-gu gu-slot-2" id="btn-gu-bronze" data-gu="bronze" type="button" aria-label="Dùng Thanh Đồng Giáp Cổ"><span class="skill-key-badge">2</span><span class="btn-icon" data-gu-icon="bronze" data-icon-size="28" aria-hidden="true"></span><span class="btn-sub">Đồng Giáp</span><span class="gu-cost">25 CN</span><span class="cd-overlay" id="cd-bronze" aria-hidden="true"></span></button>
+        <button class="action-btn btn-dash" id="btn-dash" type="button" aria-label="Lướt né đòn"><span class="btn-icon" data-icon="dash" aria-hidden="true"></span><span class="btn-sub">Lướt</span><span class="gu-cost stamina-cost">30 thể lực</span><span class="cd-overlay" id="cd-dash" aria-hidden="true"></span></button>
+        <button class="action-btn btn-gu gu-slot-3" id="btn-gu-boar" data-gu="boar" type="button" aria-label="Dùng Bạch Trư Cổ"><span class="skill-key-badge">3</span><span class="btn-icon" data-gu-icon="boar" data-icon-size="28" aria-hidden="true"></span><span class="btn-sub">Bạch Trư</span><span class="gu-cost">20 CN</span><span class="cd-overlay" id="cd-boar" aria-hidden="true"></span></button>
+        <button class="action-btn btn-gu gu-slot-4" id="btn-gu-heal" data-gu="heal" type="button" aria-label="Dùng Thảo Hoàn Cổ"><span class="skill-key-badge">4</span><span class="btn-icon" data-gu-icon="heal" data-icon-size="28" aria-hidden="true"></span><span class="btn-sub">Thảo Hoàn</span><span class="gu-cost">30 CN</span><span class="cd-overlay" id="cd-heal" aria-hidden="true"></span></button>
+        <button class="action-btn btn-attack" id="btn-attack" type="button" aria-label="Đánh thường" title="Nhấp trái hoặc J để đánh theo hướng chuột. Cảm ứng: kéo rồi thả để chọn hướng."><span class="btn-icon" data-icon="sword" aria-hidden="true"></span><span class="btn-sub">Công kích</span><span class="attack-hint"><span class="keyboard-hint">J · Đánh thường</span><span class="touch-hint">Kéo để ngắm</span></span></button>
+      </div></div>
+    </div>
+
+    <div class="game-modal" id="modal-action-settings" hidden aria-hidden="true"></div>
+    <div class="game-modal" id="modal-overworld-atlas" hidden aria-hidden="true"></div>
+    <div class="game-modal" id="modal-field-death" hidden aria-hidden="true"></div>
+    <div class="game-modal" id="modal-academy" hidden aria-hidden="true"></div>
+    <div class="game-modal" id="modal-resources" hidden aria-hidden="true"></div>
+    <div class="game-modal" id="modal-world" hidden aria-hidden="true"></div>
+
+    <div class="game-modal" id="modal-inventory" hidden aria-hidden="true"><div class="modal-backdrop"></div><section class="modal-card inventory-panel" role="dialog" aria-modal="true" aria-labelledby="inventory-title" tabindex="-1">
+      <header class="modal-header"><span class="modal-emblem" data-icon="bag" aria-hidden="true"></span><div class="modal-heading"><p class="eyebrow">Hành trang Cổ Sư</p><h2 id="inventory-title">Túi trữ vật</h2></div><button class="btn-close" id="btn-close-inventory" type="button" aria-label="Đóng túi đồ"><span data-icon="close" aria-hidden="true"></span></button></header>
+      <div class="modal-body"><div class="tabs-nav" role="tablist" aria-label="Loại hành trang"><button class="tab-btn active" id="tab-gu" data-tab="gu-tab" role="tab" aria-selected="true" aria-controls="tab-gu-content" type="button">Cổ trùng bản mệnh</button><button class="tab-btn" id="tab-items" data-tab="items-tab" role="tab" aria-selected="false" aria-controls="tab-items-content" tabindex="-1" type="button">Vật phẩm &amp; nguyên liệu</button></div><div class="tab-content active" id="tab-gu-content" role="tabpanel" aria-labelledby="tab-gu"><p class="section-intro">Dưỡng cổ mỗi ngày, bồi đắp sức mạnh cho hành trình.</p><div class="gu-card-list" id="gu-inventory-list"></div></div><div class="tab-content" id="tab-items-content" role="tabpanel" aria-labelledby="tab-items"><p class="section-intro">Từng nguyên liệu đều có thể mở ra một cơ duyên mới.</p><div class="items-grid" id="items-inventory-grid"></div></div></div>
+    </section></div>
+
+    <div class="game-modal" id="modal-refine" hidden aria-hidden="true"><div class="modal-backdrop"></div><section class="modal-card refine-panel" role="dialog" aria-modal="true" aria-labelledby="refine-title" tabindex="-1">
+      <header class="modal-header"><span class="modal-emblem" data-icon="flask" aria-hidden="true"></span><div class="modal-heading"><p class="eyebrow">Dưỡng cổ · luyện cổ · dụng cổ</p><h2 id="refine-title">Lô đỉnh hợp luyện</h2></div><button class="btn-close" id="btn-close-refine" type="button" aria-label="Đóng bảng hợp luyện"><span data-icon="close" aria-hidden="true"></span></button></header>
+      <div class="modal-body"><p class="refine-intro">Hai Cổ trùng, một cơ duyên. Chọn phối phương để khám phá sức mạnh mới.</p><div class="furnace-container"><div class="furnace-step"><button class="furnace-slot" id="slot-primary" type="button" aria-label="Chọn Cổ chủ thể"><span class="slot-placeholder">Cổ 1</span></button><span class="furnace-label">Chủ thể</span></div><span class="furnace-plus" aria-hidden="true">+</span><div class="furnace-step"><button class="furnace-slot" id="slot-secondary" type="button" aria-label="Chọn Cổ phụ"><span class="slot-placeholder">Cổ 2</span></button><span class="furnace-label">Phụ thể</span></div><span class="furnace-arrow" data-icon="arrow-right" aria-hidden="true"></span><div class="furnace-step"><div class="furnace-slot result-slot" id="slot-result" aria-label="Dự đoán Cổ thành phẩm"><span class="slot-placeholder">?</span></div><span class="furnace-label">Thành phẩm</span></div></div>
+        <div class="refine-stats-row"><div><span>Tỷ lệ thành công</span><strong id="refine-chance" class="text-gold">85%</strong></div><div><span>Phí hợp luyện</span><strong id="refine-cost" class="text-blue">10 Nguyên thạch</strong></div></div><div class="available-gu-select"><h3>Cổ trùng trong túi</h3><p class="field-hint">Chạm để chọn. Chạm ô phía trên để bỏ chọn.</p><div class="gu-select-row" id="refine-available-gu"></div></div><div class="refine-notice"><span data-icon="sparkles" aria-hidden="true"></span><p>Thất bại vẫn tiêu hao nguyên thạch. Cổ trùng được giữ lại.</p></div><button class="btn-refine-action" id="btn-execute-refine" type="button"><span data-icon="flask" aria-hidden="true"></span>Bắt đầu hợp luyện<span data-icon="arrow-right" aria-hidden="true"></span></button>
+      </div>
+    </section></div>
+
+    <div class="game-modal" id="modal-cultivator" hidden aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <section class="modal-card cultivator-panel character-panel" role="dialog" aria-modal="true" aria-labelledby="cultivator-title" tabindex="-1">
+        <header class="modal-header character-header">
+          <div class="character-header-title">
+            <span class="character-shortcut-hint">C: NHÂN VẬT • V: CỔ</span>
+            <div class="character-scroll-title">
+              <h2 id="cultivator-title">Nhân vật</h2>
+            </div>
+          </div>
+          <div class="character-tabs" role="tablist">
+            <button type="button" class="char-tab active" data-char-tab="nhan-vat" aria-pressed="true">Nhân vật</button>
+            <button type="button" class="char-tab" data-char-tab="chi-so" aria-pressed="false">Chỉ số</button>
+            <button type="button" class="char-tab" data-char-tab="thoi-trang" aria-pressed="false">Thời trang</button>
+          </div>
+          <button class="btn-close" id="btn-close-cultivator" type="button" aria-label="Đóng thông tin Cổ Sư">
+            <span data-icon="close" aria-hidden="true"></span>
+          </button>
+        </header>
+
+        <div class="modal-body character-body">
+          <!-- Left: Equipment / Hộ Cụ -->
+          <div class="character-col-equip">
+            <div class="col-section-title">Hộ cụ</div>
+            <div class="equip-slots-list">
+              <div class="equip-slot-box" data-slot="armor" title="Y phục">
+                <div class="equip-slot-frame"><span class="equip-slot-glyph">👘</span></div>
+                <div class="equip-slot-info">
+                  <div class="equip-name" id="equip-armor-name">Áo Vải Thô</div>
+                  <div class="equip-stat">+10 Phòng ngự</div>
+                </div>
+              </div>
+              <div class="equip-slot-box" data-slot="gloves" title="Hộ uyển">
+                <div class="equip-slot-frame"><span class="equip-slot-glyph">🧤</span></div>
+                <div class="equip-slot-info">
+                  <div class="equip-name" id="equip-gloves-name">Hộ Uyển Trúc</div>
+                  <div class="equip-stat">+5 Công đòn tay</div>
+                </div>
+              </div>
+              <div class="equip-slot-box" data-slot="boots" title="Hài túc">
+                <div class="equip-slot-frame"><span class="equip-slot-glyph">👢</span></div>
+                <div class="equip-slot-info">
+                  <div class="equip-name" id="equip-boots-name">Hài Cỏ Thanh Mao</div>
+                  <div class="equip-stat">+10 Tốc chạy</div>
+                </div>
+              </div>
+              <div class="equip-slot-box" data-slot="pendant" title="Ngọc bội">
+                <div class="equip-slot-frame"><span class="equip-slot-glyph">📿</span></div>
+                <div class="equip-slot-info">
+                  <div class="equip-name" id="equip-pendant-name">Ngọc Bội Cổ Nguyệt</div>
+                  <div class="equip-stat">+20 Chân nguyên</div>
+                </div>
+              </div>
+            </div>
+            <p class="equip-caption">Chưa mặc món nào. Hộ cụ may ở bảng săn (nghề Săn và thuộc da).</p>
+          </div>
+
+          <!-- Center: Cultivator Animated Preview -->
+          <div class="character-col-preview">
+            <div class="avatar-canvas-wrapper">
+              <canvas id="char-preview-canvas" width="160" height="200" aria-label="Hình ảnh nhân vật Cổ Nguyệt Phương Nguyên"></canvas>
+              <div class="avatar-rotate-hint">Kéo chuột / vuốt để xoay</div>
+            </div>
+            <div class="character-identity">
+              <div class="char-name-row">
+                <span class="char-name" id="char-name-display">Cổ Nguyệt Phương Nguyên</span>
+              </div>
+              <div class="char-realm-row">
+                <span class="char-realm" id="stat-realm">Nhất Chuyển Sơ Giai</span>
+                <span class="badge-faction">Chính đạo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Gu Set, Realm Progress, Combat Stats -->
+          <div class="character-col-stats">
+            <!-- Equipped Gu Set -->
+            <div class="gu-set-section">
+              <div class="gu-set-header">
+                <span class="col-section-title">BỘ CỔ</span>
+                <button type="button" class="btn-open-gu-bag" id="btn-open-gu-from-char">Mở bảng Cổ</button>
+              </div>
+              <div class="gu-sockets-row" id="char-gu-sockets">
+                <div class="gu-socket active" title="Nguyệt Quang Cổ"><span class="socket-icon">🌙</span></div>
+                <div class="gu-socket active" title="Bạch Trư Cổ"><span class="socket-icon">🐗</span></div>
+                <div class="gu-socket active" title="Thanh Đồng Giáp Cổ"><span class="socket-icon">🛡️</span></div>
+                <div class="gu-socket active" title="Thảo Hoàn Cổ"><span class="socket-icon">🌿</span></div>
+                <div class="gu-socket empty" title="Ô trống"><span class="socket-icon">⭕</span></div>
+              </div>
+            </div>
+
+            <!-- Realm & Resource Bars -->
+            <div class="realm-progress-section">
+              <div class="section-sub-title">CẢNH GIỚI</div>
+              <div class="char-bar-row">
+                <div class="char-bar-track tuvi-track">
+                  <div class="char-bar-fill tuvi-fill" style="width: 35%;"></div>
+                  <span class="char-bar-text">Tu vi 1.400 / 4.000</span>
+                </div>
+              </div>
+              <div class="char-bar-row">
+                <div class="char-bar-track hp-track">
+                  <div class="char-bar-fill hp-fill" id="char-hp-fill" style="width: 100%;"></div>
+                  <span class="char-bar-text" id="char-hp-text">Máu 2.000 / 2.000</span>
+                </div>
+              </div>
+              <div class="char-bar-row">
+                <div class="char-bar-track mp-track">
+                  <div class="char-bar-fill mp-fill primeval-sea" id="aperture-sea" style="width: 100%;"></div>
+                  <span class="char-bar-text" id="char-mp-text">Chân nguyên 945 / 945</span>
+                </div>
+              </div>
+
+              <div class="faction-row">
+                <span>Thân phận: <strong class="text-green">Chính đạo</strong></span>
+                <span>Chiến lực: <strong class="text-gold" id="stat-power">860</strong></span>
+              </div>
+              <p class="faction-lore">Thân phận trong giới cổ sư, dõi theo việc làm và những lựa chọn đã qua.</p>
+            </div>
+
+            <!-- Combat Attributes -->
+            <div class="combat-stats-section">
+              <div class="section-sub-title">CHỈ SỐ CHIẾN ĐẤU</div>
+              <div class="stats-sub-note">Mỗi dòng: gốc + hộ cụ.</div>
+              <div class="stats-grid-2col">
+                <div class="stat-line"><span>Máu:</span><strong id="stat-char-hp">2.000 + 0</strong></div>
+                <div class="stat-line"><span>Chân nguyên:</span><strong id="stat-char-mp">945 + 0</strong></div>
+                <div class="stat-line"><span>Công đòn tay:</span><strong id="stat-atk">25 (+0)</strong></div>
+                <div class="stat-line"><span>Giáp:</span><strong id="stat-def">10 (+0)</strong></div>
+                <div class="stat-line"><span>Tốc chạy:</span><strong id="stat-spd">160 px/s</strong></div>
+              </div>
+            </div>
+
+            <!-- Account & Cloud Progress Button -->
+            <div class="auth-cloud-section" style="margin-top: 14px; text-align: center;">
+              <button type="button" class="btn-open-auth-from-char" id="btn-open-auth-from-char">
+                <span data-icon="sparkles" aria-hidden="true"></span>
+                <span>Lưu Tiến Trình · Đăng Nhập Gmail</span>
+              </button>
+              <button type="button" class="btn-open-auth-from-char" id="btn-open-rules" style="margin-top: 10px">
+                <span data-icon="book" aria-hidden="true"></span>
+                <span>Thử Quy Luật Tu Luyện</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="game-modal" id="modal-dialogue" hidden aria-hidden="true"><div class="modal-backdrop"></div><section class="modal-card dialogue-panel" role="dialog" aria-modal="true" aria-labelledby="dialogue-npc-name" tabindex="-1">
+      <header class="modal-header"><span class="modal-emblem" data-icon="sparkles" aria-hidden="true"></span><div class="modal-heading"><p class="eyebrow" id="dialogue-npc-title">Gia Lão Học Đường · Cổ Nguyệt Dược Cơ</p><h2 id="dialogue-npc-name">Đàm đạo với Gia Lão</h2></div><button class="btn-close" id="btn-close-dialogue" type="button" aria-label="Đóng đối thoại"><span data-icon="close" aria-hidden="true"></span></button></header>
+      <div class="modal-body dialogue-body">
+        <div class="dialogue-portrait-row">
+          <div class="dialogue-portrait" aria-hidden="true"><span class="sage-avatar">🧙‍♂️</span></div>
+          <div class="dialogue-speech-bubble"><p id="dialogue-text">Chào con, thiếu niên Cổ Nguyệt! Hãy vững bước trên tiên lộ...</p></div>
+        </div>
+        <div class="dialogue-actions-row" id="dialogue-actions">
+          <button type="button" class="btn-dialogue-action btn-gold" data-dialogue-action="close">Con xin nghe lời dạy!</button>
+        </div>
+      </div>
+    </section></div>
+
+    <div class="game-modal" id="modal-wiki" hidden aria-hidden="true"><div class="modal-backdrop"></div><section class="modal-card wiki-panel" role="dialog" aria-modal="true" aria-labelledby="wiki-title" tabindex="-1">
+      <header class="modal-header wiki-dau">
+        <span class="modal-emblem" data-icon="book" aria-hidden="true"></span>
+        <div class="modal-heading">
+          <p class="eyebrow">Cẩm nang tra cứu · cotienlo.com/wiki</p>
+          <h2 id="wiki-title">Cổ Tiên Lộ · Wiki</h2>
+        </div>
+        <button class="btn-close" id="btn-close-wiki" type="button" aria-label="Đóng Cẩm nang Wiki"><span data-icon="close" aria-hidden="true"></span></button>
+      </header>
+      <div class="modal-body wiki-body">
+        <div class="wiki-toolbar">
+          <div class="wiki-tim" role="search">
+            <input type="search" id="wiki-tim" autocomplete="off" placeholder="Tìm cổ, vật phẩm, thú, sát chiêu, vùng…" aria-label="Tìm trong wiki">
+            <ul id="wiki-tim-kq" role="listbox" hidden></ul>
+          </div>
+          <div class="wiki-nav-pills" role="navigation" aria-label="Chuyên mục Wiki">
+            <button type="button" class="wiki-pill-btn active" data-wiki-tab="tong-quan" aria-pressed="true">Tổng quan</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="co" aria-pressed="false">Cổ trùng (377)</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="van-co-luc" aria-pressed="false">Vạn Cổ Lục</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="co-phuong" aria-pressed="false">Cổ phương (70)</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="sat-chieu" aria-pressed="false">Sát chiêu (23)</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="vat-pham" aria-pressed="false">Vật phẩm</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="thu" aria-pressed="false">Thú (72)</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="ban-do" aria-pressed="false">Bản đồ</button>
+            <button type="button" class="wiki-pill-btn" data-wiki-tab="cam-nang" aria-pressed="false">Bắt đầu &amp; Hỏi đáp</button>
+          </div>
+        </div>
+        <div class="wiki-than">
+          <details class="wiki-ben" id="wiki-ben" open>
+            <summary>Mục lục</summary>
+            <nav aria-label="Mục lục Wiki">
+              <p class="nav-tn">Tra cứu chính</p>
+              <ul class="nav-chung">
+                <li><a href="#tong-quan" data-wiki-goto="tong-quan" aria-current="page">Trang chủ Wiki</a></li>
+                <li><a href="#cam-nang" data-wiki-goto="cam-nang">Bắt đầu &amp; Cách mạnh lên</a></li>
+                <li><a href="#co" data-wiki-goto="co">Cổ trùng (377 loài)</a></li>
+                <li><a href="#van-co-luc" data-wiki-goto="van-co-luc">Vạn Cổ Lục &amp; Bản mệnh</a></li>
+                <li><a href="#co-phuong" data-wiki-goto="co-phuong">Cổ phương (70 hợp luyện)</a></li>
+                <li><a href="#sat-chieu" data-wiki-goto="sat-chieu">Sát chiêu (23 chiêu)</a></li>
+                <li><a href="#vat-pham" data-wiki-goto="vat-pham">Vật phẩm (365 món)</a></li>
+                <li><a href="#thu" data-wiki-goto="thu">Thú hoang (72 loài)</a></li>
+                <li><a href="#ban-do" data-wiki-goto="ban-do">Bản đồ &amp; Phó bản</a></li>
+              </ul>
+            </nav>
+          </details>
+          <div id="wiki-main-content" class="wiki-noi-dung"></div>
+        </div>
+        <footer class="wiki-chan">
+          <p>Dữ liệu đồng bộ từ <strong>cotienlo.com/wiki/</strong> (bản dựng 23/10/2026). Hình ảnh cổ trùng &amp; vật phẩm trích xuất từ <code>o_tui_atlas.png</code> và <code>icon_v2_atlas.png</code>.</p>
+          <button type="button" class="wiki-footer-btn" data-wiki-tab="co">Mở danh lục 377 Cổ trùng</button>
+        </footer>
+      </div>
+    </section></div>
+
+    <div class="game-modal" id="modal-rebirth" hidden aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <section class="modal-card rebirth-panel" role="dialog" aria-modal="true" aria-labelledby="rebirth-life-title" tabindex="-1">
+        <header class="modal-header rebirth-header">
+          <span class="modal-emblem emblem-rebirth" data-icon="sparkles" aria-hidden="true"></span>
+          <div class="modal-heading">
+            <p class="eyebrow">Luân hồi chuyển thế · Ký ức chân linh</p>
+            <h2 id="rebirth-life-title">Hồn Quy Sinh Tử Môn</h2>
+          </div>
+        </header>
+        <div class="modal-body rebirth-body">
+          <p class="rebirth-intro">Một kiếp tu hành đã khép lại giữa hồng trần hiểm ác. Thân xác tiêu tán, nhưng Chân Linh bất diệt. Di trạch kiếp trước đã hóa thành bia mộ rêu phong trên cõi Thanh Mao Sơn.</p>
+          <div class="rebirth-stats-box" id="rebirth-death-stats"></div>
+          <div class="rebirth-warning-notice">
+            <span data-icon="sparkles" aria-hidden="true"></span>
+            <p><strong>Cảnh báo Ngoại Cảnh &amp; Thiên Tai:</strong> Di trạch tiền kiếp sẽ bị xói mòn theo thời gian! Dã thú đào bới hoặc biến động địa chấn Nam Cương có thể vùi lấp di vật nếu không sớm tìm lại.</p>
+          </div>
+          <div class="rebirth-origin-selection">
+            <h3>Chọn Thân Phận Khởi Đầu Kiếp Mới:</h3>
+            <div class="origin-options-grid">
+              <button type="button" class="origin-option-btn selected" data-origin="clan">
+                <span class="origin-icon">🎋</span>
+                <span class="origin-name">Đệ tử chi thứ Cổ Nguyệt</span>
+                <span class="origin-desc">Khởi đầu tại Doanh trại Tông môn</span>
+              </button>
+              <button type="button" class="origin-option-btn" data-origin="hunter">
+                <span class="origin-icon">🏹</span>
+                <span class="origin-name">Thợ săn dã sơn</span>
+                <span class="origin-desc">Thân pháp tốc độ +10%</span>
+              </button>
+              <button type="button" class="origin-option-btn" data-origin="scholar">
+                <span class="origin-icon">📜</span>
+                <span class="origin-name">Thư sinh ngộ đạo</span>
+                <span class="origin-desc">Chân nguyên tối đa +20 MP</span>
+              </button>
+            </div>
+          </div>
+          <div class="rebirth-actions">
+            <button type="button" class="btn-rebirth-action" id="btn-execute-rebirth">
+              <span data-icon="sparkles" aria-hidden="true"></span>
+              Bước Vào Luân Hồi · Tân Sinh Cổ Sư
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="game-modal" id="modal-tutorial" hidden aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <section class="modal-card tutorial-panel" role="dialog" aria-modal="true" aria-labelledby="tutorial-title" tabindex="-1">
+        <header class="modal-header tutorial-header">
+          <span class="modal-emblem" data-icon="sparkles" aria-hidden="true"></span>
+          <div class="modal-heading">
+            <p class="eyebrow">Nhập môn tu tiên · Quy tắc Cổ giới</p>
+            <h2 id="tutorial-title">Cẩm Nang Tân Thủ</h2>
+          </div>
+          <button class="btn-close" id="btn-close-tutorial" type="button" aria-label="Đóng hướng dẫn">
+            <span data-icon="close" aria-hidden="true"></span>
+          </button>
+        </header>
+        <div class="modal-body tutorial-body">
+          <p class="tutorial-intro">Chào mừng Cổ Sư bước vào Cổ Tiên Lộ. Dưới đây là những điều cơ bản nhất để sinh tồn và tu hành:</p>
+          <div class="tutorial-grid">
+            <div class="tutorial-card card-sanctuary">
+              <div class="tutorial-card-header">
+                <span class="tutorial-badge-num">1</span>
+                <h3>Khu Vực An Toàn Quanh Gia Lão (MỚI)</h3>
+              </div>
+              <p>Vùng linh quang phát sáng hình trận đồ Bát Quái quanh <strong>Gia Lão Học Đường</strong> là <strong>Tông Môn Hộ Thần Trận</strong>:</p>
+              <ul>
+                <li><strong>Quái không thể vào:</strong> Dã thú và dị thú sẽ bị đẩy lùi, không thể vượt qua vòng sáng kết giới.</li>
+                <li><strong>Hồi máu &amp; Chân nguyên:</strong> Đứng trong vùng này, Cổ Sư sẽ được <strong>tự động liên tục hồi phục Sinh Lực (HP)</strong> và Chân Nguyên (MP) miễn phí. Nếu gặp nguy hiểm, hãy lập tức chạy về đây tịnh dưỡng!</li>
+              </ul>
+            </div>
+
+            <div class="tutorial-card card-movement">
+              <div class="tutorial-card-header">
+                <span class="tutorial-badge-num">2</span>
+                <h3>Thao Tác Di Chuyển &amp; Thân Pháp</h3>
+              </div>
+              <p><strong>PC:</strong> Sử dụng phím <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> hoặc phím mũi tên.</p>
+              <p><strong>Điện thoại:</strong> Chạm và kéo cần điều khiển <strong>Joystick</strong> ở góc trái dưới.</p>
+              <p><strong>Ngắm trên PC:</strong> Rê chuột trên sân để chọn hướng. Nhấp trái hoặc <kbd>J</kbd> đánh thường; <kbd>1</kbd>–<kbd>4</kbd> dùng bốn ô chiêu. Mở Cài đặt để lắp Cổ và đổi phím. Đi qua nút giao diện vẫn giữ điểm ngắm cuối trên sân.</p>
+              <p><strong>Ngắm trên điện thoại:</strong> Giữ cần chạy bằng một ngón; dùng ngón khác kéo từ nút <strong>Công kích</strong> hoặc <strong>Nguyệt Quang</strong> rồi thả để bắn. Chạm nhanh dùng hướng đã ngắm gần nhất; chưa ngắm thì theo hướng nhân vật.</p>
+              <p><strong>Vừa chạy vừa bắn:</strong> Hướng ngắm độc lập với hướng chạy. Đường ngắm quanh nhân vật cho biết chiêu sẽ bay về đâu; lướt vẫn theo hướng di chuyển.</p>
+              <p><strong>Lướt né đòn:</strong> Phím <kbd>Space</kbd> hoặc nút <strong>Lướt</strong> (tiêu hao 30 Thể lực) để né tránh kỹ năng dậm chấn địa của Thú Vương.</p>
+            </div>
+
+            <div class="tutorial-card card-dialogue">
+              <div class="tutorial-card-header">
+                <span class="tutorial-badge-num">3</span>
+                <h3>Đàm Đạo Gia Lão &amp; Nhiệm Vụ</h3>
+              </div>
+              <p>Đến gần Gia Lão Học Đường, bấm phím <kbd>F</kbd> hoặc nút <strong>[💬 Đàm đạo]</strong> để nhận nhiệm vụ:</p>
+              <ul>
+                <li>Chương 01: Săn rắn rừng trúc &amp; Hợp luyện Cổ đệ nhất.</li>
+                <li>Chương 02: Dẹp trừ Lang Triều &amp; Thu hái Linh Thảo.</li>
+                <li>Chương 03: Thám hiểm Mật đạo &amp; Trảm sát Thú Vương, Thiên Khảm Ngô Công.</li>
+                <li>Chương 04: Đột phá Nhị Chuyển Sơ Giai.</li>
+              </ul>
+            </div>
+
+            <div class="tutorial-card card-combat">
+              <div class="tutorial-card-header">
+                <span class="tutorial-badge-num">4</span>
+                <h3>Kỹ Năng &amp; Dụng Cổ Chiến Đấu</h3>
+              </div>
+              <div class="tutorial-skills-mini">
+                <div class="skill-mini-item"><strong>🗡️ Đánh thường (Phím J):</strong> Chém đao cận chiến.</div>
+                <div class="skill-mini-item"><strong>🌙 Nguyệt Quang Cổ:</strong> Phóng đao khí hoàng kim tầm xa (15 MP).</div>
+                <div class="skill-mini-item"><strong>🐗 Bạch Thỉ Cổ:</strong> Tăng vọt lực đạo sát thương &amp; tốc độ chạy (20 MP).</div>
+                <div class="skill-mini-item"><strong>🛡️ Thanh Đồng Cổ:</strong> Tạo hộ thuẫn kim chung tráo giảm 55% sát thương (25 MP).</div>
+                <div class="skill-mini-item"><strong>🌿 Thảo Hoàn Cổ:</strong> Hồi máu liên tục trong 6 giây (30 MP).</div>
+              </div>
+            </div>
+
+            <div class="tutorial-card card-systems">
+              <div class="tutorial-card-header">
+                <span class="tutorial-badge-num">5</span>
+                <h3>Hợp Luyện, Vạn Cổ Lục &amp; Nhân Vật</h3>
+              </div>
+              <ul>
+                <li><strong>Luyện Cổ (Phím H):</strong> Đặt 2 Cổ trùng vào lò và dùng Nguyên thạch để hợp luyện ra Cổ cấp cao (như Nguyệt Lưỡi Cổ, Cương Cơ Cổ).</li>
+                <li><strong>Túi Đồ (Phím B):</strong> Xem Cổ bản mệnh và nguyên liệu săn bắt.</li>
+                <li><strong>Vạn Cổ Lục (Phím V):</strong> Mở cẩm nang tra cứu 377 loài Cổ trùng.</li>
+                <li><strong>Nhân Vật (Phím C):</strong> Xem trang bị, chỉ số chiến lực và xoay 360° mô hình Cổ Sư đội nón lá.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tutorial-actions">
+            <button type="button" class="btn-tutorial-confirm" id="btn-tutorial-confirm">
+              <span data-icon="sparkles" aria-hidden="true"></span>
+              Đã Hiểu · Bắt Đầu Con Đường Tu Tiên
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="game-modal" id="modal-auth" hidden aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <section class="modal-card auth-panel" role="dialog" aria-modal="true" aria-labelledby="auth-title" tabindex="-1">
+        <header class="modal-header">
+          <span class="modal-emblem" data-icon="sparkles" aria-hidden="true"></span>
+          <div class="modal-heading">
+            <p class="eyebrow">Chân Linh Lưu Trữ · Xác Minh Gmail</p>
+            <h2 id="auth-title">Đăng Nhập / Đăng Ký Gmail</h2>
+          </div>
+          <button class="btn-close" id="btn-close-auth" type="button" aria-label="Đóng bảng đăng nhập">
+            <span data-icon="close" aria-hidden="true"></span>
+          </button>
+        </header>
+        <div class="modal-body auth-modal-body"></div>
+      </section>
+    </div>
+
+    <div class="game-modal" id="modal-rules" hidden aria-hidden="true"></div>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+  </main>
+</body>
+</html>

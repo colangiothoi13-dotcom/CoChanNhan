@@ -1,0 +1,3286 @@
+{
+  "version": 1,
+  "adaptation": "Nội dung địa phương và cơ chế sáng tạo cho game, không phải nguyên tác.",
+  "regions": [
+    {
+      "id": "south",
+      "name": "Nam Cương",
+      "subtitle": "Núi rừng · gia tộc · đường sông",
+      "color": "#79bd8b"
+    },
+    {
+      "id": "north",
+      "name": "Bắc Nguyên",
+      "subtitle": "Thảo nguyên · đàn thú · gió tuyết",
+      "color": "#a4c3d2"
+    },
+    {
+      "id": "east",
+      "name": "Đông Hải",
+      "subtitle": "Hải đồ · quần đảo · hai dòng triều",
+      "color": "#66b8c9"
+    },
+    {
+      "id": "west",
+      "name": "Tây Mạc",
+      "subtitle": "Ốc đảo · biển cát · mạch nước",
+      "color": "#d5b06f"
+    },
+    {
+      "id": "central",
+      "name": "Trung Châu",
+      "subtitle": "Môn phái · thư khố · khế ước",
+      "color": "#bfa0cf"
+    }
+  ],
+  "places": [
+    {
+      "id": "south-1",
+      "regionId": "south",
+      "name": "Thung Dưỡng Trúc",
+      "summary": "Ba trại trồng trúc đổi hàng qua cầu dây",
+      "resource": "Nấm sống dưới gốc trúc bệnh; mùa mưa đổi loại nấm",
+      "secret": "Bệnh trúc là dấu vết một phòng dưỡng Cổ; quay lại khi biết chẩn bệnh để cứu nguồn thu cả thung",
+      "returnReason": "quay lại khi biết chẩn bệnh để cứu nguồn thu cả thung",
+      "neighbors": [
+        "south-6",
+        "south-2"
+      ],
+      "skill": "care"
+    },
+    {
+      "id": "south-2",
+      "regionId": "south",
+      "name": "Hẻm Ba Vết",
+      "summary": "Thợ săn và đội thu phí chia hai lối đèo",
+      "resource": "Thú săn theo tiếng vọng, đá giữ âm",
+      "secret": "Vết cào trên cao chỉ ra lối vòng sau ổ thú; khi có khả năng leo có thể mở đường hộ tống",
+      "returnReason": "khi có khả năng leo có thể mở đường hộ tống",
+      "neighbors": [
+        "south-1",
+        "south-3"
+      ],
+      "skill": "combat"
+    },
+    {
+      "id": "south-3",
+      "regionId": "south",
+      "name": "Chợ Mưa Đen",
+      "summary": "Người gùi hàng, chủ trọ và môi giới hoạt động theo mùa",
+      "resource": "Dược liệu ưa mưa, rượu địa phương",
+      "secret": "Một đơn mua hàng lặp sai số là mật thư; quay lại khi biết người nhận ở Trung Châu",
+      "returnReason": "quay lại khi biết người nhận ở Trung Châu",
+      "neighbors": [
+        "south-2",
+        "south-4",
+        "east-1"
+      ],
+      "skill": "diplomacy"
+    },
+    {
+      "id": "south-4",
+      "regionId": "south",
+      "name": "Ruộng Đá Ong",
+      "summary": "Nông hộ và người nuôi ong tranh nguồn nước",
+      "resource": "Hoa mọc trong khe đá, mật nhiều cấp chất lượng",
+      "secret": "Tập tính ong dẫn vào giếng cũ; giải quyết nước sẽ thay đổi giá thực phẩm vùng lân cận",
+      "returnReason": "giải quyết nước sẽ thay đổi giá thực phẩm vùng lân cận",
+      "neighbors": [
+        "south-3",
+        "south-5"
+      ],
+      "skill": "care"
+    },
+    {
+      "id": "south-5",
+      "regionId": "south",
+      "name": "Hang Đèn Tắt",
+      "summary": "Thợ mỏ đi theo các giếng thông khí",
+      "resource": "Khoáng phát quang chỉ sáng khi thiếu một chất khí",
+      "secret": "Lối tưởng là ngõ cụt là cửa luyện thất; quay lại với dụng cụ đo khí thay vì sức chiến đấu",
+      "returnReason": "quay lại với dụng cụ đo khí thay vì sức chiến đấu",
+      "neighbors": [
+        "south-4",
+        "south-6"
+      ],
+      "skill": "refinement"
+    },
+    {
+      "id": "south-6",
+      "regionId": "south",
+      "name": "Bến Rễ Treo",
+      "summary": "Dân bè và hai trại đối đầu kiểm soát đường sông",
+      "resource": "Cá ăn rễ ngập, gỗ nổi bền",
+      "secret": "Bia chìm xuất hiện khi nước rút; xây lại bến mở tuyến trở về nhanh nhưng phải thỏa thuận quyền thu phí",
+      "returnReason": "xây lại bến mở tuyến trở về nhanh nhưng phải thỏa thuận quyền thu phí",
+      "neighbors": [
+        "south-5",
+        "south-1",
+        "central-1"
+      ],
+      "skill": "survival"
+    },
+    {
+      "id": "north-1",
+      "regionId": "north",
+      "name": "Đồng Cỏ Gãy",
+      "summary": "Các nhóm chăn thả chuyển trại theo nguồn nước",
+      "resource": "Cỏ mọc thành dải chỉ hướng thú di cư",
+      "secret": "Những khoảng cỏ bị tránh tạo bản đồ đường cũ; quay lại mùa khác thấy cả tuyến đổi hướng",
+      "returnReason": "quay lại mùa khác thấy cả tuyến đổi hướng",
+      "neighbors": [
+        "north-6",
+        "north-2"
+      ],
+      "skill": "survival"
+    },
+    {
+      "id": "north-2",
+      "regionId": "north",
+      "name": "Bãi Chuông Xương",
+      "summary": "Đoàn xe và người giữ mộ chung một giếng",
+      "resource": "Xương thú cộng hưởng với gió",
+      "secret": "Tiếng chuông chỉ đường qua bão; kẻ bán chuông biết một nửa thông tin và cần người kiểm chứng",
+      "returnReason": "kẻ bán chuông biết một nửa thông tin và cần người kiểm chứng",
+      "neighbors": [
+        "north-1",
+        "north-3"
+      ],
+      "skill": "insight"
+    },
+    {
+      "id": "north-3",
+      "regionId": "north",
+      "name": "Hồ Tan Muộn",
+      "summary": "Ngư dân và trại trú đông có lợi ích trái nhau",
+      "resource": "Cá dưới băng, địa y chịu lạnh",
+      "secret": "Vệt tan sớm báo một kho nhiệt dưới đáy; quay lại khi có hậu cần lặn để cứu nghề cá hoặc khai thác kho",
+      "returnReason": "quay lại khi có hậu cần lặn để cứu nghề cá hoặc khai thác kho",
+      "neighbors": [
+        "north-2",
+        "north-4"
+      ],
+      "skill": "care"
+    },
+    {
+      "id": "north-4",
+      "regionId": "north",
+      "name": "Vành Sói Đêm",
+      "summary": "Người dẫn đàn và đội bảo vệ tranh hành lang cỏ",
+      "resource": "Đàn sói đổi lãnh địa theo mùi",
+      "secret": "Có thể chuyển đàn sang lối an toàn thay vì giết sạch; kết quả quyết định tuyến thương mại mùa sau",
+      "returnReason": "kết quả quyết định tuyến thương mại mùa sau",
+      "neighbors": [
+        "north-3",
+        "north-5"
+      ],
+      "skill": "combat"
+    },
+    {
+      "id": "north-5",
+      "regionId": "north",
+      "name": "Đồi Cờ Rách",
+      "summary": "Hậu duệ hai nhóm chiến bại trao đổi tại hội chợ",
+      "resource": "Sợi vải cũ và đất chứa kim loại",
+      "secret": "Cờ là mảnh sơ đồ tiếp tế; quay lại với lời chứng ở Đông Hải để chứng minh một vụ phản bội",
+      "returnReason": "quay lại với lời chứng ở Đông Hải để chứng minh một vụ phản bội",
+      "neighbors": [
+        "north-4",
+        "north-6"
+      ],
+      "skill": "diplomacy"
+    },
+    {
+      "id": "north-6",
+      "regionId": "north",
+      "name": "Trạm Hành Nang",
+      "summary": "Chủ trạm và người giữ xe nhận khách theo sức chứa",
+      "resource": "Lương khô, da chống gió, thú tải",
+      "secret": "Sổ hành trang dẫn tới khảo nghiệm sinh tồn; trạm phát triển nếu người chơi giữ được tuyến hàng",
+      "returnReason": "trạm phát triển nếu người chơi giữ được tuyến hàng",
+      "neighbors": [
+        "north-5",
+        "north-1",
+        "central-2"
+      ],
+      "skill": "survival"
+    },
+    {
+      "id": "east-1",
+      "regionId": "east",
+      "name": "Vịnh Hai Triều",
+      "summary": "Ngư dân và hoa tiêu dùng hai lịch nước khác nhau",
+      "resource": "Tảo đổi màu, cá theo hai dòng triều",
+      "secret": "Tàu mất tích chỉ biến mất trong một cửa giờ; quay lại với lịch đúng có thể tiếp cận khoang chìm",
+      "returnReason": "quay lại với lịch đúng có thể tiếp cận khoang chìm",
+      "neighbors": [
+        "east-6",
+        "east-2",
+        "south-3"
+      ],
+      "skill": "insight"
+    },
+    {
+      "id": "east-2",
+      "regionId": "east",
+      "name": "Quần Đảo Vỏ Chuông",
+      "summary": "Thợ lặn, chủ tàu và người nuôi nhuyễn thể",
+      "resource": "Vỏ phát âm khác nhau theo độ mặn",
+      "secret": "Xếp âm thanh đúng tạo bản đồ, không mở cửa bằng việc đánh quái; nghề nuôi trở nên quý khi tìm đúng giống",
+      "returnReason": "nghề nuôi trở nên quý khi tìm đúng giống",
+      "neighbors": [
+        "east-1",
+        "east-3"
+      ],
+      "skill": "care"
+    },
+    {
+      "id": "east-3",
+      "regionId": "east",
+      "name": "Rạn Đèn Lạc",
+      "summary": "Cộng đồng giữ hải đăng cạnh bãi xác tàu",
+      "resource": "Sinh vật phát sáng bắt chước ánh đèn",
+      "secret": "Hải đăng giả dẫn tàu vào bẫy; sửa tuyến làm một nhóm buôn lậu mất lợi ích",
+      "returnReason": "sửa tuyến làm một nhóm buôn lậu mất lợi ích",
+      "neighbors": [
+        "east-2",
+        "east-4"
+      ],
+      "skill": "combat"
+    },
+    {
+      "id": "east-4",
+      "regionId": "east",
+      "name": "Hải Câu Lặng",
+      "summary": "Trại lặn thuê người bảo vệ cáp kéo",
+      "resource": "Khoáng đáy biển và sinh vật chịu áp suất",
+      "secret": "Một di tích bị chôn dần cần đội lặn phối hợp; quay lại với phương tiện chịu áp mới tới được tầng dưới",
+      "returnReason": "quay lại với phương tiện chịu áp mới tới được tầng dưới",
+      "neighbors": [
+        "east-3",
+        "east-5"
+      ],
+      "skill": "survival"
+    },
+    {
+      "id": "east-5",
+      "regionId": "east",
+      "name": "Đảo Muối Sương",
+      "summary": "Diêm dân và người trồng cây cùng lệ thuộc nước ngọt",
+      "resource": "Muối hút ẩm, cây lọc nước",
+      "secret": "Mưa bất thường do hệ thống cổ trận hỏng; phục hồi tạo trung tâm tiếp tế cho hành trình xa",
+      "returnReason": "phục hồi tạo trung tâm tiếp tế cho hành trình xa",
+      "neighbors": [
+        "east-4",
+        "east-6"
+      ],
+      "skill": "refinement"
+    },
+    {
+      "id": "east-6",
+      "regionId": "east",
+      "name": "Vùng Hải Kính",
+      "summary": "Hoa tiêu kín tiếng bán thông tin qua người trung gian",
+      "resource": "Mặt nước lưu dấu quang ảnh trong thời gian ngắn",
+      "secret": "Chuỗi ảnh thiếu một góc dẫn đến truyền thừa đặc biệt; địa điểm đổi giá trị khi biết cách đọc biển",
+      "returnReason": "địa điểm đổi giá trị khi biết cách đọc biển",
+      "neighbors": [
+        "east-5",
+        "east-1",
+        "central-4"
+      ],
+      "skill": "insight"
+    },
+    {
+      "id": "west-1",
+      "regionId": "west",
+      "name": "Ốc Đảo Hai Giếng",
+      "summary": "Hai cộng đồng chia quyền mở giếng",
+      "resource": "Nước hai tầng có độ mặn khác nhau",
+      "secret": "Mực nước ghi một chu kỳ dưới đất; quay lại sau bão để tìm cửa trước khi cát lấp",
+      "returnReason": "quay lại sau bão để tìm cửa trước khi cát lấp",
+      "neighbors": [
+        "west-6",
+        "west-2"
+      ],
+      "skill": "insight"
+    },
+    {
+      "id": "west-2",
+      "regionId": "west",
+      "name": "Biển Cát Kêu",
+      "summary": "Người dẫn đường và đoàn thú tải đi theo tiếng cát",
+      "resource": "Hạt khoáng rung khi có gió đúng hướng",
+      "secret": "Một tuyến đường nằm trên nền di tích; người biết âm có thể mở đường ngắn, người chỉ mang bản đồ vẫn dễ lạc",
+      "returnReason": "người biết âm có thể mở đường ngắn, người chỉ mang bản đồ vẫn dễ lạc",
+      "neighbors": [
+        "west-1",
+        "west-3"
+      ],
+      "skill": "survival"
+    },
+    {
+      "id": "west-3",
+      "regionId": "west",
+      "name": "Thành Bóng Dài",
+      "summary": "Thợ đo bóng, dân chợ và người giữ tháp",
+      "resource": "Đá hấp nhiệt, côn trùng hoạt động lúc chạng vạng",
+      "secret": "Bóng tháp là lịch mở địa cung; quay lại với kiến thức thiên tượng để đọc thêm tầng thông tin",
+      "returnReason": "quay lại với kiến thức thiên tượng để đọc thêm tầng thông tin",
+      "neighbors": [
+        "west-2",
+        "west-4"
+      ],
+      "skill": "insight"
+    },
+    {
+      "id": "west-4",
+      "regionId": "west",
+      "name": "Đồng Muối Nứt",
+      "summary": "Người khai muối và cộng đồng di cư tranh nơi trú",
+      "resource": "Tinh thể giữ nước, mặt đất dễ sụp",
+      "secret": "Đường nứt nối một hồ ngầm; khai thác quá mức có thể làm mất nguồn sống của cả vùng",
+      "returnReason": "khai thác quá mức có thể làm mất nguồn sống của cả vùng",
+      "neighbors": [
+        "west-3",
+        "west-5"
+      ],
+      "skill": "refinement"
+    },
+    {
+      "id": "west-5",
+      "regionId": "west",
+      "name": "Hành Lang Gió Nóng",
+      "summary": "Trạm thu phí và người làm hàng chống nóng",
+      "resource": "Khoáng chịu nhiệt, nấm trong giếng mát",
+      "secret": "Ba trạm ghi ba phần công thức; tái lập tuyến vận tải mở nguồn cung thay cho độc quyền",
+      "returnReason": "tái lập tuyến vận tải mở nguồn cung thay cho độc quyền",
+      "neighbors": [
+        "west-4",
+        "west-6"
+      ],
+      "skill": "combat"
+    },
+    {
+      "id": "west-6",
+      "regionId": "west",
+      "name": "Vườn Đêm Dưới Cát",
+      "summary": "Cộng đồng sống cạnh cửa hang chỉ đi ban đêm",
+      "resource": "Rễ hút sương và sinh vật thụ phấn đêm",
+      "secret": "Người ngoài tưởng là kho báu, cư dân coi là nguồn nước; quay lại với quan hệ tốt mới được học cách chăm",
+      "returnReason": "quay lại với quan hệ tốt mới được học cách chăm",
+      "neighbors": [
+        "west-5",
+        "west-1",
+        "central-3"
+      ],
+      "skill": "care"
+    },
+    {
+      "id": "central-1",
+      "regionId": "central",
+      "name": "Thung Chuông Sớm",
+      "summary": "Một môn phái địa phương và các làng làm dịch vụ",
+      "resource": "Dược thảo đổi hoạt tính theo sương",
+      "secret": "Lịch chuông đang che một vụ đưa hàng; làm đệ tử, người buôn hay người điều tra đều có lối tiếp cận",
+      "returnReason": "làm đệ tử, người buôn hay người điều tra đều có lối tiếp cận",
+      "neighbors": [
+        "central-6",
+        "central-2",
+        "south-6"
+      ],
+      "skill": "combat"
+    },
+    {
+      "id": "central-2",
+      "regionId": "central",
+      "name": "Thị Trấn Khế Bút",
+      "summary": "Người chép hợp đồng, thương nhân và người giữ kho",
+      "resource": "Mực bền, giấy chống ẩm",
+      "secret": "Hợp đồng cũ chứa điều khoản trái nhau; quay lại với nhân chứng khác mới giải được động cơ hai bên",
+      "returnReason": "quay lại với nhân chứng khác mới giải được động cơ hai bên",
+      "neighbors": [
+        "central-1",
+        "central-3",
+        "north-6"
+      ],
+      "skill": "diplomacy"
+    },
+    {
+      "id": "central-3",
+      "regionId": "central",
+      "name": "Thư Khố Tro",
+      "summary": "Người sao sách và hậu duệ người giữ thư viện",
+      "resource": "Tro giữ dấu mực, gỗ bảo quản sách",
+      "secret": "Sách bị xóa có thể phục dựng bằng vật liệu từ Nam Cương; việc công bố làm thay đổi uy tín địa phương",
+      "returnReason": "việc công bố làm thay đổi uy tín địa phương",
+      "neighbors": [
+        "central-2",
+        "central-4",
+        "west-6"
+      ],
+      "skill": "insight"
+    },
+    {
+      "id": "central-4",
+      "regionId": "central",
+      "name": "Bậc Mây Thấp",
+      "summary": "Đội vận tải trên cao và cư dân vách núi",
+      "resource": "Sợi nhẹ, thảo mộc chịu gió",
+      "secret": "Tàn cầu nối một mảnh không gian; quay lại sau khi sửa neo và tìm được người điều hướng",
+      "returnReason": "quay lại sau khi sửa neo và tìm được người điều hướng",
+      "neighbors": [
+        "central-3",
+        "central-5",
+        "east-6"
+      ],
+      "skill": "survival"
+    },
+    {
+      "id": "central-5",
+      "regionId": "central",
+      "name": "Hồ Chín Bến",
+      "summary": "Nhiều làng bến và một cơ sở tuyển đệ tử",
+      "resource": "Cá nước lạnh, bùn luyện khí cụ",
+      "secret": "Bến bỏ hoang là đường vào hồ sơ tuyển sinh thất lạc; quan hệ với một người chèo đò mở góc nhìn khác",
+      "returnReason": "quan hệ với một người chèo đò mở góc nhìn khác",
+      "neighbors": [
+        "central-4",
+        "central-6"
+      ],
+      "skill": "care"
+    },
+    {
+      "id": "central-6",
+      "regionId": "central",
+      "name": "Đồng Lò Cũ",
+      "summary": "Các phường luyện và cư dân chịu ô nhiễm",
+      "resource": "Nhiên liệu, xỉ luyện tái sử dụng",
+      "secret": "Thất bại công nghiệp che một công thức có thể sửa; quay lại với kỹ năng xử lý độc để đổi vận khu dân cư",
+      "returnReason": "quay lại với kỹ năng xử lý độc để đổi vận khu dân cư",
+      "neighbors": [
+        "central-5",
+        "central-1"
+      ],
+      "skill": "refinement"
+    }
+  ],
+  "inheritances": [
+    {
+      "id": "duong-truc",
+      "name": "Dưỡng Trúc",
+      "placeId": "south-1",
+      "skill": "care",
+      "minRank": 1,
+      "origin": "một người chăm Cổ để lại phương pháp cứu đàn Cổ ăn nấm sau dịch trúc.",
+      "clue": "cứu người chở cây bệnh; quan sát Cổ bỏ ăn đúng loại nấm đang bán đắt nhất.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 1 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp nhất chuyển, tại Thung Dưỡng Trúc. Điểm cam kết là đóng cửa buồng cách ly sau khi đã thử chẩn đoán trên một mẫu ngoài cửa; báo rõ khí độc trong vòng quyết định có thể giết người.",
+      "success": "cứu được Cổ giữ khóa và khôi phục bộ lọc trước khi độc đạt mức chí mạng. Có thể dùng chẩn bệnh tiết kiệm vật liệu hoặc dùng thuốc rộng đắt hơn và chịu tổn thương.",
+      "failure": "để độc chạm ngưỡng đã báo hoặc giết Cổ giữ khóa khiến bộ lọc khóa vĩnh viễn; người trong buồng chết. Sai sót: cho nhầm một bữa khiến Cổ yếu và tăng lượng thuốc cần dùng, vẫn có thể cứu.",
+      "reward": "Tri thức Dưỡng Trúc, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "nguồn thức ăn được cứu hoặc tiếp tục khan hiếm; cộng đồng có phản ứng với người công bố hoặc độc quyền phương pháp.",
+      "stages": [
+        {
+          "id": "duong-truc-1",
+          "title": "Ba khay nấm",
+          "text": "Ba đàn Cổ bỏ ăn khác nhau. Đốm dưới thân trúc là dấu hiệu giúp tách nguồn bệnh.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Cách ly từng khay và đo phản ứng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Tự phân loại bằng dấu vết trên nấm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Trộn cả ba khay cho ăn thử",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "duong-truc-2",
+          "title": "Mạch lọc suy yếu",
+          "text": "Khí trong buồng đổi màu. Một van phụ còn hoạt động; dùng nó sẽ tốn vật liệu lọc.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Thay lớp lọc và mở van phụ",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Chỉnh nhịp thông khí theo quan sát",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Mở rộng mọi van cùng lúc",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "duong-truc-3",
+          "title": "Cổ giữ khóa",
+          "text": "Đàn cuối đã yếu, lớp lọc chỉ đủ cho một lần xử lý. Đây là bước quyết định.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng khẩu phần đã cách ly",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Giữ nhịp lọc và tự chia khẩu phần",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Phá bộ lọc để lấy khóa ngay",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba-vet",
+      "name": "Ba Vết",
+      "placeId": "south-2",
+      "skill": "combat",
+      "minRank": 1,
+      "origin": "người bảo vệ đèo ghi lại cách chống ba kiểu tập kích.",
+      "clue": "vết cào không khớp hướng tấn công trong lời kể; khiên vỡ của một người sống sót.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 1 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp nhị chuyển, tại Hẻm Ba Vết. Điểm cam kết là hạ cổng thao trường; trước đó được thử cơ chế bẫy ở mô hình không gây chết.",
+      "success": "vô hiệu hóa ba chốt bằng phối hợp chiến đấu, hoặc dẫn cơ quan vào tuyến bẫy đã tìm hiểu. Cách thứ hai cần dụng cụ và bỏ lại số vật liệu dùng làm mồi.",
+      "failure": "đến đợt kết liễu mà các chốt còn tạo được vòng bắn kín, hoặc nhận tổn thương chí mạng; nhân vật chết. Sai sót: bẫy nổ sớm mất một vị trí trú nhưng vẫn còn lối giải khác.",
+      "reward": "Tri thức Ba Vết, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "đèo mở cho đoàn hàng nếu cơ quan được tháo; để nguyên giúp giữ phòng tuyến nhưng kéo dài phí đi đường.",
+      "stages": [
+        {
+          "id": "ba-vet-1",
+          "title": "Đọc tiếng vọng",
+          "text": "Ba hành lang phản lại tiếng bước chân. Vết sâu nhất nằm cạnh một vách có thể che đòn.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Gia cố chỗ nấp rồi tiến",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đọc nhịp cơ quan và vượt góc hẹp",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Lao thẳng qua vùng bắn",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "ba-vet-2",
+          "title": "Chốt phản kích",
+          "text": "Cơ quan chỉ đổi hướng sau hai nhịp. Một chốt đang nứt có thể khóa tạm.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng vật tư khóa chốt nứt",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Dụ cơ quan đổi hướng đúng nhịp",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Đánh vào mọi chốt bất kể thứ tự",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "ba-vet-3",
+          "title": "Vòng bắn cuối",
+          "text": "Cả ba tuyến đang khép lại. Phá chốt cuối đúng nhịp mới mở cửa.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dựng bẫy chặn rồi tháo chốt",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Chuyển vị trí theo nhịp đã học",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Đứng giữa vòng bắn để phản công",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hanh-nang-trang",
+      "name": "Hành Nang Trắng",
+      "placeId": "north-6",
+      "skill": "survival",
+      "minRank": 2,
+      "origin": "người dẫn đoàn mất tích để lại cách chuẩn bị cho bão đổi hướng.",
+      "clue": "cứu người giữ xe, tìm sổ cân hành lý và các cọc gió lệch nhau.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 2 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp nhị chuyển, tại Trạm Hành Nang. Cam kết khi đoàn thử luyện rời trạm cuối vào hành lang bão; có bảng quãng đường, nơi trú và lượng dự trữ tối thiểu.",
+      "success": "đưa Cổ giữ truyền thừa cùng người kế thừa sống đến nơi trú cuối. Đi đường ngắn cần đọc gió chính xác; đi đường vòng tốn thêm khẩu phần đã chuẩn bị.",
+      "failure": "để toàn bộ phương án giữ nhiệt mất tác dụng trong vùng không còn nơi trú, hoặc vượt thời hạn sinh tồn hiển thị sau khi dự trữ cạn; nhân vật chết. Sai sót: vỡ xe làm chậm và phải bỏ vật nặng, chưa phải kết thúc.",
+      "reward": "Tri thức Hành Nang Trắng, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "tuyến hàng mới có thể hoạt động; người hy sinh hàng hóa để cứu đoàn được cư dân nhớ theo cách khác người giữ lợi nhuận.",
+      "stages": [
+        {
+          "id": "hanh-nang-trang-1",
+          "title": "Cân hành lý",
+          "text": "Gió từ bắc đang mạnh lên. Đèn định hướng cần được giữ khô trước khi đoàn rời trạm.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Bọc kín đèn bằng vật tư dự phòng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Sắp lại tải và giữ đèn phía khuất gió",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Giữ toàn bộ hàng trên nóc xe",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "hanh-nang-trang-2",
+          "title": "Chọn nơi trú",
+          "text": "Hai cọc gió nghiêng về khe thấp. Đường thẳng ngắn hơn nhưng không có chỗ tránh bão.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Đi vòng qua nơi trú đã đánh dấu",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đọc hướng gió để băng qua đoạn khuất",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Chạy theo đường thẳng vào tâm bão",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "hanh-nang-trang-3",
+          "title": "Chặng trắng",
+          "text": "Bão cuối đang khóa đường. Bỏ tải nặng có thể giữ nhiệt và mở lối về trạm.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng khẩu phần giữ nhiệt cuối",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Bỏ hàng nặng và giữ nhịp di chuyển",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Bỏ cả đèn lẫn vật giữ ấm",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gieng-hai-muc",
+      "name": "Giếng Hai Mực",
+      "placeId": "west-1",
+      "skill": "insight",
+      "minRank": 2,
+      "origin": "thợ dẫn nước để lại khóa dựa trên độ mặn và áp lực hai tầng nước.",
+      "clue": "xác Cổ chỉ xuất hiện ở một giếng; vạch nước cũ không khớp giờ dùng của dân.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 2 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp nhị chuyển, tại Ốc Đảo Hai Giếng. Cam kết khi kéo thang xuống khoang kín; được theo dõi đủ một chu kỳ nước ngoài giếng trước đó.",
+      "success": "cân áp rồi mở khoang khô. Có thể suy luận từ số đo hoặc dùng vật tư tạo bộ dẫn tạm; cách sau tiêu hao nguồn dự trữ của mình.",
+      "failure": "áp lực phá vách khoang hoặc hết khí thở khi chưa cân bằng; nhân vật chết. Sai sót: mở sai một van làm giảm thời gian còn lại nhưng có thể đóng để sửa.",
+      "reward": "Tri thức Giếng Hai Mực, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "hướng phân phối nước thay đổi quan hệ hai cộng đồng; không có phương án mặc định khiến mọi phe đều hưởng như nhau.",
+      "stages": [
+        {
+          "id": "gieng-hai-muc-1",
+          "title": "Hai lớp nước",
+          "text": "Mẫu lấy ở giếng đông mặn hơn dù mực thấp. Dấu cũ ghi áp lực đổi theo chu kỳ.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng vật tư lấy hai mẫu kiểm chứng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đối chiếu vạch nước và độ mặn",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Mở cả hai van không đo áp",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "gieng-hai-muc-2",
+          "title": "Van cân bằng",
+          "text": "Vách khoang rung khi van dưới mở. Van trên giúp thoát khí nhưng làm giảm thời gian dự trữ.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dẫn khí qua bộ chuyển dự phòng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Khép van dưới theo nhịp rung",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Mở mạnh van dưới để thử sức vách",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "gieng-hai-muc-3",
+          "title": "Khoang khô",
+          "text": "Mực hai giếng gần cân. Một nhịp đóng mở cuối sẽ mở khoang hoặc phá vách.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Đệm van bằng vật tư còn lại",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Cân áp theo chu kỳ đã ghi",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Giật khóa khi áp chưa cân",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khe-uoc",
+      "name": "Khế Ước Bảy Ngày",
+      "placeId": "central-2",
+      "skill": "diplomacy",
+      "minRank": 3,
+      "origin": "một người hòa giải để lại mạng quan hệ và phương pháp kiểm chứng lời hứa.",
+      "clue": "giúp một người bị giữ hàng; tìm hai hợp đồng cùng mang dấu kho nhưng khác nghĩa vụ.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 3 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp tam chuyển, tại Thị Trấn Khế Bút. Cam kết khi ký điều khoản sinh tử trong phòng quyết định. Văn bản được xem trước, có bản dễ đọc và có cơ hội hỏi người giữ khế về phạm vi ràng buộc.",
+      "success": "hoàn tất nghĩa vụ mà không vi phạm điều cấm đã ký. Có thể trả chi phí tự gánh, hoặc thương lượng để các bên cùng đóng góp dựa trên bằng chứng.",
+      "failure": "chủ động phạm điều khoản kết liễu được nêu rõ, hoặc tới hạn cuối mà nghĩa vụ bắt buộc chưa hoàn thành; nhân vật chết do cơ chế khế của khảo nghiệm. Sai sót: thuyết phục thất bại một người làm phương án đắt hơn, không phải tự động chết.",
+      "reward": "Tri thức Khế Ước Bảy Ngày, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "bên được bảo vệ có nguồn lực mới; việc phơi bày gian lận có thể khiến chủ kho mất quyền hoặc làm một tuyến hàng ngừng hoạt động.",
+      "stages": [
+        {
+          "id": "khe-uoc-1",
+          "title": "Hai bản khế",
+          "text": "Một chủ kho hứa giao hàng nhưng dấu ngày trên bản nhận không khớp. Cần bằng chứng trước khi buộc tội.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Trả chi phí để đối chiếu sổ kho",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Hỏi riêng người giao và người nhận",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Cáo buộc cả hai mà không kiểm chứng",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "khe-uoc-2",
+          "title": "Lời hứa có giá",
+          "text": "Bên thiếu hàng có thể bồi vật tư hoặc đổi lịch giao. Điều cấm là cố ý làm giả vật chứng.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Tự bù phần hàng còn thiếu",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đề nghị chia chi phí dựa trên sổ thật",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Sửa dấu kho cho hợp với lời hứa",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "khe-uoc-3",
+          "title": "Thời hạn cuối",
+          "text": "Các nghĩa vụ đã rõ. Chỉ hoàn tất đúng khế đã ký mới chấm dứt ràng buộc.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng dự trữ hoàn tất nghĩa vụ",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đối chiếu đủ bằng chứng rồi kết toán",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Hủy khế sinh tử để rời phòng",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lo-cam",
+      "name": "Lò Câm",
+      "placeId": "central-6",
+      "skill": "refinement",
+      "minRank": 3,
+      "origin": "một người luyện Cổ mất thính giác thiết kế lò đọc bằng màu và rung.",
+      "clue": "cứu thợ bị độc, nhận mảnh công thức bị hiểu sai vì người chép chỉ ghi tiếng lò.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 3 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp tam chuyển, dưới Đồng Lò Cũ. Cam kết khi châm mẻ luyện cuối; bảng phản ứng mẫu, giới hạn áp và quy trình xả thử được quan sát trước.",
+      "success": "hoàn tất mẻ đạt chuẩn trước khi lò mất ổn định. Điều khiển chính xác tiết kiệm nguyên liệu; dùng chất ổn định cho sai số rộng hơn nhưng tiêu hao tài nguyên hiếm.",
+      "failure": "áp vượt ngưỡng phá lò hoặc hết thời gian kiểm soát phản ứng sau cảnh báo cuối; người trong lò chết. Sai sót: giảm chất lượng bán thành phẩm vẫn sửa được nếu còn vật liệu.",
+      "reward": "Tri thức Lò Câm, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "xử lý xỉ đúng giúp cư dân giảm độc; bán công thức cho bên muốn khai thác nhanh có thể làm ô nhiễm tăng.",
+      "stages": [
+        {
+          "id": "lo-cam-1",
+          "title": "Mẻ đầu không tiếng",
+          "text": "Người giữ lò ghi tín hiệu bằng màu và rung. Màu sáng không đồng nghĩa nhiệt đã đủ.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng mẫu chuẩn kiểm tra nhiệt",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đọc độ rung và đổi màu đồng thời",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Tăng lửa chỉ theo ánh sáng",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "lo-cam-2",
+          "title": "Áp lực dâng",
+          "text": "Một lớp nguyên liệu đang nổi bọt lệch nhịp. Có thể thêm chất ổn định hoặc kiểm soát nhiệt chặt hơn.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Thêm chất ổn định dự phòng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Giảm nhiệt theo nhịp bọt đã đo",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Khóa van xả để giữ mọi nguyên liệu",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "lo-cam-3",
+          "title": "Mẻ thành phẩm",
+          "text": "Thành phẩm sắp ngưng tụ. Lò chỉ chịu thêm một chu kỳ, cần kết thúc có kiểm soát.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Xả áp qua lớp lọc mới",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Thu mẻ theo tín hiệu rung cuối",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Mở nắp khi lò còn vượt áp",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hai-do-rong",
+      "name": "Hải Đồ Rỗng",
+      "placeId": "east-1",
+      "skill": "insight",
+      "minRank": 3,
+      "origin": "hoa tiêu cất bản đồ bằng các mốc di động thay vì tọa độ bất biến.",
+      "clue": "cứu người trên tàu mắc cạn, quan sát đường bơi trái với hải đồ bán tại chợ.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 3 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp tam chuyển, tại Vịnh Hai Triều. Cam kết khi đi qua cửa triều vào buồng thử kín; có thể khảo sát các tín hiệu ngoài cửa trước.",
+      "success": "đưa thuyền vào khoang đích trước đợt đóng triều. Có thể dựa vào quan sát sinh vật hoặc thiết bị đo đã tự chế; thiết bị tốn chỗ chứa và nhiên liệu.",
+      "failure": "thuyền vỡ trong khu nước xoáy không có đường thoát, hoặc cửa cuối đóng khi còn trong hành lang ngập; nhân vật chết. Sai sót: đi sai luồng mất thời gian và hàng, còn sửa hướng được.",
+      "reward": "Tri thức Hải Đồ Rỗng, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "tuyến biển mới giảm độc quyền hoa tiêu cũ; mốc sinh vật có thể bị khai thác quá mức nếu thông tin bán bừa bãi.",
+      "stages": [
+        {
+          "id": "hai-do-rong-1",
+          "title": "Mốc đang bơi",
+          "text": "Hải đồ không có tọa độ; cá và tảo đổi hướng theo hai lớp triều.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Thả mốc nổi để đối chiếu dòng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đọc đường bơi qua hai lần đổi nước",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Theo mũi tên cũ bất chấp triều",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "hai-do-rong-2",
+          "title": "Luồng nước ngược",
+          "text": "Một vùng nước lạnh cắt ngang đường về. Dấu tảo cho thấy lối vòng còn mở.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng vật tư ổn định bánh lái",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Chuyển hướng theo vệt tảo mới",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Lao vào giữa vùng nước xoáy",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "hai-do-rong-3",
+          "title": "Cửa triều",
+          "text": "Buồng đích chỉ mở khi thuyền vào đúng lớp nước trước đợt khép cuối.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng mốc dự phòng giữ hướng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Chọn lớp nước theo dấu đã kiểm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Đợi cửa đóng rồi phá thuyền thoát",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mua-co",
+      "name": "Mùa Cỏ Không Đàn",
+      "placeId": "north-4",
+      "skill": "combat",
+      "minRank": 4,
+      "origin": "người điều khiển đàn để lại cách dẫn thú mà không phá môi trường nuôi chúng.",
+      "clue": "cứu người chăn, điều tra vì sao thú bỏ một đồng cỏ vẫn còn nhiều thức ăn.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 4 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp tứ chuyển, tại Vành Sói Đêm. Cam kết trong vòng cỏ khóa đường ở chặng cuối; trước đó được thử dẫn một đàn nhỏ và xem tác hại khi thất kiểm soát.",
+      "success": "đàn giữ cấu trúc tới bãi cuối. Điều khiển trực tiếp đòi hỏi khả năng tập trung; đặt mồi dẫn giảm tải nhưng tốn vật tư và phải bố trí trước.",
+      "failure": "đàn vỡ thành cơn giẫm đạp khép kín vào vị trí người kế thừa, hoặc nhân vật nhận tổn thương chí mạng; nhân vật chết. Sai sót: một nhóm lạc có thể nhập lại bằng tín hiệu khác với giá chân nguyên cao hơn.",
+      "reward": "Tri thức Mùa Cỏ Không Đàn, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "đàn mới thay đổi đường đi và áp lực lên bãi cỏ; lựa chọn giữ cân bằng hay khai thác nhanh tạo phản ứng xã hội khác nhau.",
+      "stages": [
+        {
+          "id": "mua-co-1",
+          "title": "Dấu mùi lạ",
+          "text": "Đàn thú tránh một vùng cỏ còn tốt. Mùi lạ có thể làm nhóm đầu hoảng và kéo cả đàn chạy.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Đặt mồi dẫn tránh vùng nhiễu",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đổi tín hiệu theo hướng đàn nhỏ",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Ép cả đàn đi xuyên mùi lạ",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "mua-co-2",
+          "title": "Giữ cấu trúc đàn",
+          "text": "Nhóm phía sau bắt đầu tách. Dồn quá nhanh sẽ tạo cơn giẫm đạp.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Chia mồi để nhập đàn từ từ",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đổi nhịp lệnh cho từng nhóm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Dồn mọi nhóm vào cùng khe hẹp",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "mua-co-3",
+          "title": "Bãi cỏ cuối",
+          "text": "Đàn đang áp sát vòng cỏ. Phải chừa lối hạ tốc trước khi khóa bãi.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Mở lối dẫn bằng mồi cuối",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Giữ khoảng cách và hạ nhịp lệnh",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Đóng cả vòng khi đàn còn chạy",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thu-kho",
+      "name": "Thư Khố Tro",
+      "placeId": "central-3",
+      "skill": "insight",
+      "minRank": 4,
+      "origin": "người giữ thư viện chôn cách phục dựng tài liệu sau một vụ thiêu sách.",
+      "clue": "giải mã dấu tro trên sách mua ở chợ, tìm loại gỗ tương ứng tại Nam Cương.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 4 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp tứ chuyển, tại Thư Khố Tro. Cam kết khi phòng niêm phong cuối nhận người; bản thử bên ngoài chỉ rõ lượng khí thở và cơ chế cháy của phòng.",
+      "success": "phục dựng đúng chìa khóa và giữ được ít nhất một hệ tri thức hoàn chỉnh. Cứu thêm cần vật liệu hoặc chia vai với người đã cam kết cùng.",
+      "failure": "mất toàn bộ dấu khóa và phương án mở dự phòng, hoặc khí thở cạn; nhân vật chết. Sai sót: làm hỏng một cuốn khiến mất nhánh phần thưởng nhưng không xóa mọi cách thắng.",
+      "reward": "Tri thức Thư Khố Tro, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "công bố tài liệu có thể lật cách cộng đồng hiểu một sự kiện; giữ riêng tạo lợi thế nhưng không phục hồi được tri thức cho công chúng.",
+      "stages": [
+        {
+          "id": "thu-kho-1",
+          "title": "Dấu mực trong tro",
+          "text": "Ba tờ giấy cháy lưu dấu khác nhau. Dùng ánh sáng mạnh sẽ làm mất thông tin còn lại.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng lớp bảo quản để soi từng tờ",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đối chiếu vệt tro dưới ánh yếu",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Đốt thêm để đọc mực nhanh hơn",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "thu-kho-2",
+          "title": "Chọn thứ cứu trước",
+          "text": "Thời gian thở có hạn. Một cuốn chứa khóa phòng, những cuốn khác mở rộng phần thưởng.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dành vật liệu riêng cho cuốn khóa",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Sao khóa trước rồi cứu hệ tri thức",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Để khóa lại và lấy đồ quý trước",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "thu-kho-3",
+          "title": "Chữ cuối mở cửa",
+          "text": "Dấu khóa chỉ còn một lần phản ứng. Phải xác nhận đúng thứ tự trước khi dùng.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng bản sao dự phòng kiểm khóa",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Ghép chuỗi chữ từ dấu đã ghi",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Đốt cuốn khóa để thử cửa",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "that-thuy",
+      "name": "Cửa Thất Thủy",
+      "placeId": "south-6",
+      "skill": "care",
+      "minRank": 5,
+      "origin": "chủ phúc địa đã mất để lại ý nguyện cứu bảy nguồn nước từng nuôi cộng đồng của mình.",
+      "clue": "bảy vật dẫn khác nhau xuất hiện trong các giao dịch liên vực; dấu nước trên chúng có cùng cấu trúc.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 5 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp ngũ chuyển đã chuẩn bị, tại một phúc địa sáng tạo cùng tên. Cam kết khi vào khu cân nước cuối; khảo sát ngoài cho biết đây là phép thử của người giữ cửa và liệt kê tình trạng dẫn tới kết liễu.",
+      "success": "giữ được mạng nước và thỏa điều kiện kế thừa đã nêu. Có thể bỏ tài sản để bổ sung hồ hoặc giải mạng van chính xác; hai cách có chi phí khác nhau.",
+      "failure": "để hồ lõi vỡ hoặc vi phạm điều cấm phá nguồn đã cam kết; nhân vật chết. Sai sót: mất một hồ phụ tăng chi phí bù và làm giảm phần tài nguyên nhận được, chưa phải tự động chết.",
+      "reward": "Tri thức Cửa Thất Thủy, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "mở nguồn cung mới và tranh chấp quyền dùng; thế lực bên ngoài có thể muốn thương lượng, mua quyền hoặc gây sức ép.",
+      "stages": [
+        {
+          "id": "that-thuy-1",
+          "title": "Bảy nguồn",
+          "text": "Người giữ cửa chỉ ra hồ lõi và các hồ phụ. Nước dồn về một hồ sẽ làm cả mạng mất cân.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Bổ sung vật tư cho hồ thấp",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đo dòng vào ra trước khi chuyển nước",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Dồn tất cả nước về hồ lớn nhất",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "that-thuy-2",
+          "title": "Mạng van",
+          "text": "Một hồ phụ rò nước. Có thể vá bằng tài nguyên hoặc chuyển áp qua tuyến còn bền.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng dự trữ vá hồ phụ",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Đổi áp theo mạng van đã tìm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Khóa van lõi để giấu chỗ rò",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "that-thuy-3",
+          "title": "Ý nguyện giữ nguồn",
+          "text": "Cửa cuối đòi giữ mạng nước sống. Nguồn lõi phải ổn định trước khi nhận quyền tiếp cận.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Bù phần thiếu bằng dự trữ cuối",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Cân mạng theo số đo đã kiểm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Phá hồ lõi để lấy vật dẫn",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "may-gay",
+      "name": "Hành Lang Mây Gãy",
+      "placeId": "central-4",
+      "skill": "survival",
+      "minRank": 6,
+      "origin": "một người khảo sát trên cao để lại tuyến vận chuyển không hoàn chỉnh.",
+      "clue": "cứu đội vận tải ở Bậc Mây Thấp, ghép mẫu sợi với mảnh neo từ Đông Hải.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 6 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp lục chuyển, trên tuyến tiếp cận một mảnh không gian cao. Cam kết khi neo cuối rời bến; thông tin về gió, tải và đứt neo được thử ở đoạn đầu an toàn.",
+      "success": "đưa người kế thừa và lõi bản đồ qua đoạn cuối. Có thể giữ hàng bằng kỹ năng và tiêu hao lớn, hoặc bỏ hàng để giảm yêu cầu điều khiển.",
+      "failure": "tất cả neo đứt ở vùng không thể tự thoát hoặc phương tiện bảo vệ sụp đổ; nhân vật chết. Sai sót: mất một neo tạo chặng khó hơn nhưng có thể dùng neo dự phòng.",
+      "reward": "Tri thức Hành Lang Mây Gãy, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch.",
+      "consequence": "một lối đi mới tạo nguồn tài nguyên và thay thế bớt tuyến vận tải cũ; dấu hoạt động cũng có thể thu hút đối thủ.",
+      "stages": [
+        {
+          "id": "may-gay-1",
+          "title": "Neo đầu",
+          "text": "Gió đổi chiều giữa hai tầng mây. Dây neo cũ cần kiểm tra trước khi tăng tải.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Thay một lớp neo dự phòng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Giảm tải và bám hướng gió ổn",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Giữ toàn tải trên neo đã nứt",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "may-gay-2",
+          "title": "Khoảng mây đứt",
+          "text": "Một đoạn cầu biến mất trong gió. Phải cân vị trí hàng và giữ một neo đủ bền.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dựng neo tạm bằng vật liệu",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Chuyển tải theo từng nhịp gió",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Cắt cả neo để thả trôi qua khe",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "may-gay-3",
+          "title": "Bến nghiên cứu",
+          "text": "Bến cuối đã trong tầm mắt. Lõi bản đồ cần tới nơi cùng người kế thừa.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Gia cố neo cuối để cập bến",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Bỏ tải phụ và căn hướng chính xác",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Lao phương tiện vào bến không neo",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hai-kinh",
+      "name": "Hải Kính",
+      "placeId": "east-6",
+      "skill": "insight",
+      "minRank": 6,
+      "origin": "một Cổ Tiên sáng tạo để lại phương pháp đọc tín hiệu biển và cá thể Hải Kính duy nhất.",
+      "clue": "ghép ảnh phản chiếu thiếu góc, lời chứng hoa tiêu và nguồn thức ăn đặc biệt của cá thể.",
+      "requirement": "Đã điều tra nơi này, cảnh giới tối thiểu 6 chuyển, ít nhất 30 chân nguyên và 3 tiếp tế. Dụng cụ chuyên môn được biểu diễn bằng lượng tiếp tế.",
+      "commitment": "\nPhù hợp lục chuyển, chuỗi đặc biệt tại Vùng Hải Kính. Hải Kính Tiên Cổ là Cổ sáng tạo [TK], dùng để ghi một lát tín hiệu của vùng nước trong phạm vi và thời gian hạn chế; không nhìn toàn thế giới, không đọc suy nghĩ, không phục hồi lịch sử đã mất. Cá thể ban đầu do người giữ kho sáng tạo quản lý trong thế giới chung.",
+      "success": "người nhận đã được chọn trước vòng quyết định hoàn tất ổn định và nhận chuyển quyền hợp lệ. Người hỗ trợ đạt điều kiện vai trò và sống sót nhận phần tri thức cam kết. Tranh vị trí người nhận kết thúc trước điểm khóa cam kết; vòng cuối không tiếp nhận thêm ứng viên cùng đòi cá thể đó.",
+      "failure": "làm vỡ khoang ổn định hoặc chạm điều kiện kết liễu của vai trò đã ký; người thuộc phạm vi đó chết. Sai sót: đọc sai một tín hiệu làm mất một nhánh hỗ trợ, còn cơ hội kiểm chứng bằng dấu khác.",
+      "reward": "Tri thức Hải Kính, tăng kỹ năng chuyên môn và 10 nguyên thạch. Kho đầu tiên còn thưởng hữu hạn 10 nguyên thạch. Người thắng nhận đúng cá thể Hải Kính duy nhất.",
+      "consequence": "chủ mới cần thức ăn, bảo mật và quan hệ; các phe có lý do mua dịch vụ, thương lượng trao đổi, đánh cắp hoặc tranh đoạt. Địa điểm sau đó chỉ còn tri thức và di tích, trừ khi có diễn biến mới hợp lý.",
+      "uniqueGu": "hai-kinh",
+      "stages": [
+        {
+          "id": "hai-kinh-1",
+          "title": "Ký lục bị can thiệp",
+          "text": "Một mặt phản chiếu không khớp hướng triều. Cá thể Hải Kính đang ở kho niêm phong duy nhất.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng mốc chuẩn để kiểm từng ảnh",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "So hướng ảnh với dòng nước thật",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Tin toàn bộ ảnh để mở khóa nhanh",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "hai-kinh-2",
+          "title": "Ổn định nơi chứa",
+          "text": "Làn nước quanh nơi chứa đang rung. Chuyển quyền chỉ có thể diễn ra khi khoang còn nguyên.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Bổ sung lớp ổn định dự phòng",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Cân nhịp dòng bằng số đo đã kiểm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Tách Cổ ra khi khoang chưa ổn",
+              "hint": "Làm vội: tăng 2 mức nguy hiểm và mất 12 sinh lực. Mức nguy hiểm 3 kết thúc cuộc đời.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 2,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "hai-kinh-3",
+          "title": "Chuyển một cá thể",
+          "text": "Chỉ có đúng một Hải Kính. Hoàn tất nghi thức sẽ chuyển cá thể đang tồn tại, không tạo bản sao.",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Dùng lớp bảo vệ cuối khi chuyển",
+              "hint": "Dùng 1 tiếp tế, 10 chân nguyên. Giảm 1 mức nguy hiểm; vẫn tiến tới bước sau.",
+              "energyCost": 10,
+              "supplyCost": 1,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "observe",
+              "label": "Giữ nhịp và chuyển quyền có kiểm",
+              "hint": "Dùng 16 chân nguyên, không tốn tiếp tế. Mất 4 sinh lực do tự xử lý; không tăng nguy hiểm.",
+              "energyCost": 16,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 0,
+                "hp": -4,
+                "skill": 0
+              }
+            },
+            {
+              "id": "rush",
+              "label": "Phá khoang để giành Cổ ngay",
+              "hint": "Phá điều kiện an toàn: tăng 3 mức nguy hiểm và mất 12 sinh lực. Đây là thất bại quyết định nếu chạm mức 3.",
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": -12,
+                "skill": 0
+              }
+            },
+            {
+              "id": "mastery",
+              "label": "Vận dụng sở trường đã rèn luyện",
+              "hint": "Cần kỹ năng chuyên môn cấp 2. Dùng 4 chân nguyên, không tốn tiếp tế; giảm 1 mức nguy hiểm nhờ kinh nghiệm thực hành.",
+              "requiredSkill": 2,
+              "energyCost": 4,
+              "supplyCost": 0,
+              "effect": {
+                "danger": -1,
+                "hp": 0,
+                "skill": 0
+              }
+            },
+            {
+              "id": "concede",
+              "label": "Chấp nhận thất bại cuối cùng",
+              "hint": "Nhân vật chết ngay và cuộc đời này kết thúc. Không lấy lại tài sản hay phần thưởng. Đây không phải rút lui an toàn.",
+              "energyCost": 0,
+              "supplyCost": 0,
+              "effect": {
+                "danger": 3,
+                "hp": 0,
+                "skill": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "legends": [
+    {
+      "id": "strength-wisdom",
+      "title": "Giá của Sức Mạnh và Trí Tuệ",
+      "source": "Diễn giải chương 5 · mô phỏng không gây chết",
+      "text": "Có ba vật cản và một nơi trú. Dồn hết nguồn lực vào phá vật cản đầu sẽ khiến bạn không còn khả năng tới đích. Bạn chuẩn bị thế nào?",
+      "choices": [
+        {
+          "id": "balance",
+          "label": "Quan sát trước, giữ nguồn lực cho đường về",
+          "hint": "Ưu tiên hoàn thành hành trình hơn thắng từng vật cản.",
+          "effect": {
+            "correct": true,
+            "skill": "survival"
+          }
+        },
+        {
+          "id": "exhaust",
+          "label": "Dùng hết sức phá vật cản đầu tiên",
+          "hint": "Vật cản sau vẫn còn và sức lực cần hồi phục.",
+          "effect": {
+            "correct": false,
+            "skill": "survival"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hope",
+      "title": "Giữ Một Lối Sáng",
+      "source": "Diễn giải chương 5 · mô phỏng không gây chết",
+      "text": "Lương thực ít, đường chính bị chắn. Người dẫn đường biết một lối qua núi nhưng đang cần được cứu. Một bao khoáng nặng khiến bạn không thể đưa họ đi cùng.",
+      "choices": [
+        {
+          "id": "guide",
+          "label": "Bỏ tải nặng, cứu người giữ đường thoát",
+          "hint": "Giữ một phương án thực sự còn có thể giúp bạn sống.",
+          "effect": {
+            "correct": true,
+            "skill": "care"
+          }
+        },
+        {
+          "id": "cargo",
+          "label": "Giữ hết khoáng và đợi đường tự mở",
+          "hint": "Bạn không có bằng chứng đường sẽ tự thông.",
+          "effect": {
+            "correct": false,
+            "skill": "care"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rules",
+      "title": "Hang Không Tên",
+      "source": "Diễn giải chương 38 · hai quy luật mô phỏng",
+      "text": "Cửa tròn chỉ phản ứng sau tín hiệu ánh sáng. Cửa vuông chỉ phản ứng sau âm thanh. Bạn đã quan sát một phản ứng cho mỗi loại, nhưng chưa kiểm tra có lặp lại được không.",
+      "choices": [
+        {
+          "id": "verify",
+          "label": "Thử lại từng tín hiệu và ghi quy luật",
+          "hint": "Biết một từ không thay thế chứng minh cách hệ thống vận hành.",
+          "effect": {
+            "correct": true,
+            "skill": "insight"
+          }
+        },
+        {
+          "id": "guess",
+          "label": "Đọc tên hai Cổ theo câu trả lời đã nghe",
+          "hint": "Đoán tên không xác minh được hai cơ quan trong sân thử.",
+          "effect": {
+            "correct": false,
+            "skill": "insight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "upstream",
+      "title": "Ngược Dòng",
+      "source": "Cảm hứng tuyến chính chương 1285 · không phải nhập vai Nhân Tổ",
+      "text": "Dòng mô phỏng không cho dùng kỹ năng thường. Một lần trượt khiến bạn lùi nhưng chưa mất đường sống. Hành trang nặng làm mỗi bước tốn sức hơn.",
+      "choices": [
+        {
+          "id": "rhythm",
+          "label": "Bỏ tải phụ, đọc nhịp và tiếp tục",
+          "hint": "Điều chỉnh có mục tiêu; một sai sót chưa phải thất bại cuối.",
+          "effect": {
+            "correct": true,
+            "skill": "survival"
+          }
+        },
+        {
+          "id": "spam",
+          "label": "Cố kích hoạt kỹ năng và lao đi liên tục",
+          "hint": "Luật sân thử đã giới hạn kỹ năng đó.",
+          "effect": {
+            "correct": false,
+            "skill": "survival"
+          }
+        }
+      ]
+    }
+  ],
+  "origins": [
+    {
+      "id": "south",
+      "name": "Người học chăm Cổ",
+      "placeId": "south-1",
+      "description": "Nam Cương · bắt đầu tại Thung Dưỡng Trúc; có nền tảng chăm Cổ.",
+      "skill": "care",
+      "spawnPlaceIds": [
+        "south-1",
+        "south-2"
+      ]
+    },
+    {
+      "id": "north",
+      "name": "Học việc đoàn xe",
+      "placeId": "north-1",
+      "description": "Bắc Nguyên · bắt đầu tại Đồng Cỏ Gãy; có nền tảng sinh tồn.",
+      "skill": "survival",
+      "spawnPlaceIds": [
+        "north-1",
+        "north-2"
+      ]
+    },
+    {
+      "id": "east",
+      "name": "Học việc hoa tiêu",
+      "placeId": "east-1",
+      "description": "Đông Hải · bắt đầu tại Vịnh Hai Triều; có nền tảng quan sát.",
+      "skill": "insight",
+      "spawnPlaceIds": [
+        "east-1",
+        "east-2"
+      ]
+    },
+    {
+      "id": "west",
+      "name": "Người đo giếng",
+      "placeId": "west-1",
+      "description": "Tây Mạc · bắt đầu tại Ốc Đảo Hai Giếng; có nền tảng suy luận.",
+      "skill": "insight",
+      "spawnPlaceIds": [
+        "west-1",
+        "west-2"
+      ]
+    },
+    {
+      "id": "central",
+      "name": "Người sao sách",
+      "placeId": "central-1",
+      "description": "Trung Châu · bắt đầu tại Thung Chuông Sớm; có nền tảng thương lượng.",
+      "skill": "diplomacy",
+      "spawnPlaceIds": [
+        "central-1",
+        "central-2"
+      ]
+    }
+  ]
+}

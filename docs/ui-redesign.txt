@@ -1,0 +1,88 @@
+THIẾT KẾ GIAO DIỆN CỔ TIÊN LỘ — 23/10/2026
+
+Skill áp dụng: C:/Users/DELL/.claude/skills/ui-ux-pro-max/SKILL.md
+Đã đọc pro-rules.md và quick-reference.md; tra cứu trực tiếp dữ liệu CSV của skill.
+Môi trường không có Python/Python3/py, nên không chạy được search.py. Các nguyên
+tắc dùng dưới đây là dữ liệu và hướng dẫn được đọc trực tiếp, không phải kết quả
+tự sinh của lệnh --design-system.
+
+Hướng người dùng đã chọn: cổ phong ngọc bích–đồng vàng.
+Thiết kế: nền mực xanh đậm, đồng vàng tiết chế, chữ ngà; tiêu đề serif, nội dung
+sans hỗ trợ tiếng Việt. Font hệ thống giúp bản APK hoạt động không cần tải font.
+Skill Dark Mode (OLED) khuyến nghị tương phản cao, hiệu ứng tiết chế, focus rõ,
+reduced motion. Nhóm Gaming nhấn mạnh tính nhập vai và hiệu năng; đề xuất neon
+không dùng vì không phù hợp hướng màu người dùng chọn. Typography đối chiếu
+Classic Elegant và Vietnamese Friendly, điều chỉnh sang font hệ thống sẵn có.
+
+Bố cục
+- Canvas tràn viewport; trung tâm dành cho quan sát trận đánh.
+- Góc trái: nhân vật và ba thanh trạng thái; nhiệm vụ ở dưới.
+- Góc phải: nguyên thạch, luyện cổ, túi đồ, âm thanh.
+- Joystick trái; sáu nút chiến đấu/kỹ năng bên phải, đánh thường nổi bật.
+- Portrait và landscape có bố cục riêng; ưu tiên mục tiêu chạm >=48 CSS px,
+  nội dung không tràn ngang và khoảng cách cảm ứng.
+- Bảng túi đồ/luyện cổ/nhân vật dùng một hệ bề mặt và phân cấp nội dung thống nhất.
+
+Tương tác và khả năng tiếp cận
+- Icon SVG cùng nét; không dùng emoji làm icon cấu trúc.
+- Nút có nhãn, focus-visible và phản hồi nhấn, hỗ trợ reduced motion.
+- Modal mở nhận focus, Tab nằm trong modal, Escape đóng, trả focus về nút mở.
+- Modal đóng bị ẩn khỏi điều hướng bàn phím; chỉ một modal hoạt động.
+- Cỡ chữ nội dung bảng 14–16 px; HUD gọn nhưng thông tin chính đọc rõ.
+- Bổ sung safe-area cho tai thỏ và thanh điều hướng; không khóa zoom toàn trang.
+
+Phạm vi: cải tiến giao diện bản chơi thử hiện tại; không đổi sang kiến trúc online
+hoặc thêm các cơ chế chơi mới. Giữ hợp đồng DOM đang được engine sử dụng.
+
+Kiểm chứng dự kiến: test hành vi modal/HUD, toàn bộ test game, kiểm tra layout và
+ảnh chụp Chrome headless ở 375×812, 812×375, 1440×900; build web và APK debug.
+
+KẾT QUẢ THỰC HIỆN
+- Làm lại HUD, thông tin nhân vật, nhiệm vụ, tiền tệ, joystick, sáu nút chiến đấu,
+  túi đồ, hợp luyện và khiếu huyệt theo cùng bảng màu và hệ khoảng cách.
+- Đổi icon cấu trúc sang SVG; các mục túi đồ có tên, mô tả, số lượng, thức ăn
+  còn lại và trạng thái nút cho ăn. Nhãn kỹ năng cập nhật khi có Nguyệt Nhận.
+- Dùng chung quản lý modal: hidden/ARIA, cô lập nền bằng inert, vòng Tab,
+  Escape đóng và trả focus; tab hành trang hỗ trợ mũi tên/Home/End.
+- Sửa chọn trùng Cổ giữa hai ô hợp luyện; chạm Cổ đã chọn sẽ bỏ chọn đúng ô.
+- Bỏ địa điểm lặp trong chỉ báo giờ; thống nhất chi phí chân nguyên thành CN.
+- HUD quan sát kích thước thực tế để nhiệm vụ nằm dưới header khi phóng chữ;
+  observer/rAF/listener đều được dọn khi game bị hủy.
+- Portrait phóng chữ 200% giữ nhãn và số liệu, thu gọn chi tiết trang trí.
+  Landscape thấp với chữ lớn chuyển sang luồng cuộn dọc: mọi thông tin và nút
+  vẫn truy cập được; canvas, modal và thông báo giữ theo viewport.
+- Tăng chữ trạng thái mobile thành 11/12 px và tách nhãn/số thành hai dòng.
+- Viền điều khiển #668671 đạt tối thiểu 3,28:1 trên ba bề mặt chính. Các cặp
+  chữ đã đo: chữ chính 14,26:1; chữ phụ 7,77:1; nút ngọc 10,07:1;
+  chữ phụ nút công kích 5,08:1. Đây là phép đo màu, không phải chứng nhận WCAG.
+
+KIỂM CHỨNG ĐÃ CHẠY
+- npm test: 82/82 test, 11 file; test mới tái hiện và xác minh hành vi UI.
+- npm run test:assets: 3/3 test đồng bộ tài nguyên.
+- TypeScript strict và Vite production build: thành công qua Gradle preBuild.
+- Chrome headless qua DevTools Protocol, đo sau các frame thực:
+  16/16 ca thường và 16/16 ca chữ 200% ở 375×812, 812×375, 568×320, 1440×900;
+  4/4 ca reduced motion. Mỗi kích thước kiểm tra game/túi đồ/hợp luyện/nhân vật.
+- Sau chỉnh chữ portrait cuối: chạy lại 4 ca thường, 4 ca 200%, 4 ca reduced
+  motion, đều qua. Hai ca landscape 200% xác minh thông báo kỹ năng sau cuộn
+  cũng qua. Không còn lỗi hình học được bộ kiểm tra phát hiện.
+- Kiểm tra gồm kích thước chạm >=44 px, tràn/chồng chữ và nút, clipping,
+  focus/Escape, nội dung cuộn tới được, hit-test và canvas không dịch khi cuộn.
+- tools/check-game-ui.mjs không thêm package, lưu ảnh/JSON/log và dọn profile
+  Chrome do chính lượt chạy tạo. Đã kiểm tra cú pháp và chạy thử cơ chế dọn.
+- :app:assembleDebug testDebugUnitTest --offline: BUILD SUCCESSFUL.
+  Kết quả Android JVM hiện có 83 test, 0 failures/errors; các task không đổi dùng
+  cache Gradle. Ba tài nguyên game trong APK được đối chiếu SHA-256 với dist.
+
+Đầu ra
+- app/build/outputs/apk/debug/app-debug.apk
+- docs/ui-preview/: ảnh desktop, mobile, landscape, túi đồ và hợp luyện.
+- .tmp/ui-qa-verified-{normal,text200,reduced}/results.json: ma trận trình duyệt;
+  .tmp/ui-qa-portrait-final-{normal,text200,reduced}/results.json: chữ mobile cuối;
+  .tmp/ui-qa-verified-toast-scroll/results.json: thông báo sau cuộn.
+- .tmp/ui-redesign-gradle.log: log đóng gói cuối.
+
+Giới hạn: adb devices không có thiết bị/emulator kết nối; chưa kiểm tra chạm,
+âm thanh và hiển thị WebView trên điện thoại thật. Các phần online còn thiếu
+theo Word được ghi riêng ở docs/project-audit.txt; đợt giao diện này vẫn thuộc
+bản chơi offline đã chốt với người dùng.

@@ -1,0 +1,84 @@
+.modal-card.oa-panel { width:min(1120px,calc(100vw - 32px)); max-width:1120px; max-height:calc(100dvh - 32px); display:flex; flex-direction:column; padding:0; overflow:hidden; border:1px solid #667650; border-radius:23px; background:#101f18; color:#e9e6cc; box-shadow:0 24px 80px #000b; }
+.oa-header { display:flex; align-items:center; justify-content:space-between; flex-shrink:0; gap:18px; padding:24px 28px 18px; border-bottom:1px solid #43513c; }
+.oa-eyebrow { margin:0 0 8px; color:#d5b365; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.oa-header h2 { margin:0; font:600 30px Georgia,serif; }
+.oa-header > div > p:last-child { margin:7px 0 0; font-size:12px; color:#adb59d; }
+.oa-close { width:44px; height:44px; min-width:44px; border:1px solid #61704e; border-radius:50%; background:#16271d; color:#dce3cd; font-size:28px; }
+.oa-body { min-height:0; overflow:auto; display:grid; grid-template-columns:minmax(0,1.65fr) minmax(255px,.85fr); gap:24px; padding:22px 28px; scrollbar-width:thin; scrollbar-color:#7d8e5a #15231b; }
+.oa-map-area { min-width:0; }
+.oa-map-caption { display:flex; justify-content:space-between; gap:12px; margin-bottom:12px; color:#bfc6ab; font-size:11px; }
+.oa-map { display:block; width:100%; height:auto; max-height:58dvh; border:1px solid #63714d; border-radius:14px; background:#16251c; }
+.oa-region { cursor:pointer; outline:none; }
+.oa-region polygon { fill:var(--region-fill); stroke:#81916a; stroke-width:3; transition:fill .15s; }
+.oa-region text { fill:var(--region-accent); font:600 30px Georgia,serif; pointer-events:none; }
+.oa-region:hover polygon,.oa-region.is-selected polygon { fill:var(--region-fill); stroke:#f2d583; stroke-width:6; }
+.oa-region:focus polygon { stroke:#fff5bc; stroke-width:9; }
+.oa-roads { pointer-events:none; }
+.oa-roads line { stroke:#dfc578; stroke-width:2.3; stroke-opacity:.7; stroke-dasharray:8 8; }
+.oa-hub { pointer-events:none; }
+.oa-hub circle { fill:#f3d484; stroke:#0b1913; stroke-width:3; }
+.oa-player { pointer-events:none; }
+.oa-player circle { fill:#8df5d1; stroke:#12392d; stroke-width:3; }
+.oa-player .oa-player-ring { fill:#67ecc631; stroke:#aaf8dc; stroke-width:2.5; }
+.oa-map-key { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:7px; margin:13px 0 9px; color:#cbd0b8; font-size:10px; }
+.oa-key-player,.oa-key-hub { display:inline-block; width:8px; height:8px; margin-left:8px; border-radius:50%; background:#8df5d1; }
+.oa-key-hub { background:#f3d484; }
+.oa-key-road { display:inline-block; width:18px; margin-left:8px; border-top:1px dashed #dfc578; }
+.oa-map-help { margin:0; color:#9fae94; font-size:11px; line-height:1.6; }
+.oa-details { display:flex; flex-direction:column; gap:18px; min-width:0; }
+.oa-position { display:flex; gap:11px; padding:15px; border:1px solid #526345; border-radius:12px; background:#1a3022; }
+.oa-position strong { font-size:12px; color:#e7e9cf; }
+.oa-position p { margin:7px 0 0; font-size:12px; line-height:1.65; color:#c6cfb6; }
+.oa-coordinates { font-variant-numeric:tabular-nums; color:#a5b595; }
+.oa-status-dot { width:7px; height:7px; margin-top:5px; flex-shrink:0; border-radius:50%; background:#d3a560; }
+.oa-status-dot.is-online { background:#75d5ac; box-shadow:0 0 0 4px #75d5ac16; }
+.oa-region-detail { padding:2px 2px 0; }
+.oa-region-detail h3 { margin:0 0 10px; color:#e8dfaf; font:600 27px Georgia,serif; }
+.oa-region-detail > p:not(.oa-eyebrow) { margin:0; font-size:12px; line-height:1.7; color:#bac4ac; }
+.oa-region-detail h4 { margin:20px 0 9px; font-size:11px; color:#cfd4bd; }
+.oa-region-detail ul { margin:0; padding-left:18px; color:#aebc9f; font-size:12px; line-height:1.9; }
+.oa-exploration { margin-top:auto; padding:15px; border-left:2px solid #c3ae64; background:#d6c57d0a; border-radius:0 9px 9px 0; }
+.oa-exploration strong { color:#ddcb8f; font-size:12px; }
+.oa-exploration p { margin:8px 0 0; color:#b4c0a7; font-size:11px; line-height:1.75; }
+.oa-footer { flex-shrink:0; padding:15px 24px 19px; border-top:1px solid #43513c; }
+.oa-footer > p { margin:0 0 12px; font-size:10px; color:#91a085; }
+.oa-footer > div { display:flex; flex-wrap:wrap; gap:9px; }
+.oa-footer button { min-height:44px; padding:10px 14px; border:1px solid #66784d; border-radius:9px; background:#1b2c1e; color:#d3d9bf; font-size:11px; }
+.oa-footer button.oa-primary { margin-left:auto; background:#c5d696; color:#182a15; border-color:#d6e5af; font-weight:700; }
+.oa-panel button:hover { filter:brightness(1.12); }
+.oa-panel button:focus-visible { outline:2px solid #9ef3cb; outline-offset:3px; }
+@media (max-width:700px) {
+  .modal-card.oa-panel { width:calc(100vw - 20px); max-height:calc(100dvh - 20px); border-radius:17px; }
+  .oa-header { padding:18px 17px 15px; }
+  .oa-header h2 { font-size:24px; }
+  .oa-header .oa-eyebrow { font-size:8px; letter-spacing:1.5px; }
+  .oa-body { grid-template-columns:minmax(0,1fr); padding:17px; gap:20px; }
+  .oa-map { max-height:none; }
+  .oa-map-caption { font-size:10px; }
+  .oa-details { gap:16px; }
+  .oa-region-detail h3 { font-size:25px; }
+  .oa-footer { padding:12px 15px 15px; }
+  .oa-footer > div { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .oa-footer button { padding:9px 8px; font-size:10px; }
+  .oa-footer button.oa-primary { margin-left:0; }
+}
+@media (prefers-reduced-motion:reduce) { .oa-region polygon { transition:none; } }
+@media (max-height:430px) and (orientation:landscape) {
+  .oa-header { padding:6px 14px; gap:10px; }
+  .oa-header .oa-eyebrow,.oa-header > div > p:last-child { display:none; }
+  .oa-header h2 { font-size:20px; }
+  .oa-body { grid-template-columns:minmax(0,1.1fr) minmax(180px,.9fr); gap:12px; padding:9px 12px; }
+  .oa-map-caption { font-size:9px; margin-bottom:6px; }
+  .oa-map { height:150px; max-height:150px; }
+  .oa-region text { font-size:46px; }
+  .oa-map-key { margin:6px 0; font-size:9px; }
+  .oa-map-help { font-size:9px; }
+  .oa-position { padding:9px; }
+  .oa-position p,.oa-region-detail > p:not(.oa-eyebrow) { font-size:10px; }
+  .oa-region-detail h3 { font-size:20px; }
+  .oa-footer { padding:7px 12px; }
+  .oa-footer > p { display:none; }
+  .oa-footer > div { display:flex; flex-wrap:nowrap; gap:6px; }
+  .oa-footer button { flex:1; min-width:0; padding:6px; font-size:9px; }
+  .oa-footer button.oa-primary { margin-left:0; }
+}

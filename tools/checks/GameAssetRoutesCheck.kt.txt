@@ -1,0 +1,38 @@
+package com.igorwojda.showcase.app.presentation.game
+
+/** Standalone check fixture; the harness compiles a temporary source outside the project scan. */
+fun main() {
+    val base = "https://appassets.androidplatform.net/assets/cotienlo/"
+    val cases = listOf(
+        "index.html" to BundledGameAsset("cotienlo/index.html", "text/html"),
+        "assets/game.js?v=1" to BundledGameAsset("cotienlo/assets/game.js", "application/javascript"),
+        "assets/game.css" to BundledGameAsset("cotienlo/assets/game.css", "text/css"),
+        "assets/font%20name.woff2" to BundledGameAsset("cotienlo/assets/font name.woff2", "font/woff2"),
+    )
+    for ((path, expected) in cases) check(resolveGameAsset(base + path) == expected) { "Incorrect route: $path" }
+    val rejected = listOf(
+        "file:///android_asset/cotienlo/index.html",
+        "http://appassets.androidplatform.net/assets/cotienlo/index.html",
+        "https://example.com/assets/cotienlo/index.html",
+        "https://appassets.androidplatform.net.evil/assets/cotienlo/index.html",
+        "https://user@appassets.androidplatform.net/assets/cotienlo/index.html",
+        "https://appassets.androidplatform.net:8443/assets/cotienlo/index.html",
+        "https://appassets.androidplatform.net/assets/other/index.html",
+        base + "../private.json",
+        base + "%2e%2e/private.json",
+        base + "assets/%2F..%2Fprivate.json",
+        base + "assets/%5cprivate.json",
+        base + "assets/%00private.json",
+        base + "assets/%ZZ.js",
+    )
+    for (url in rejected) check(resolveGameAsset(url) == null) { "Accepted invalid route: $url" }
+
+    val html = "<!doctype html><head><script type=\"module\" src=\"./assets/game.js\"></script></head>"
+    check(injectLegacyGameSave(html, null) == html)
+    val migrated = injectLegacyGameSave(html, "\"</script><script>alert(1)</script>\"")
+    check(!migrated.contains("</script><script>alert"))
+    check(migrated.contains("\\u003c/script>"))
+    check(migrated.indexOf("localStorage.setItem") < migrated.indexOf("type=\"module\""))
+    check(migrated.contains("localStorage.getItem('cotienlo_save_v1') === null"))
+    println("Game asset routes and legacy migration checks passed (17 routes, 5 migration checks).")
+}
